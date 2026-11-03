@@ -20,12 +20,8 @@ sidebar_label: 规格参数
 | 充电 | USB Type-C 输入，TP4054 锂电充电，带充电指示灯 |
 | 稳压 | HE9073A33M5R 3.3 V LDO |
 | 按键 | 电源拨动开关（身体下方左侧）× 1，功能键（身体下方右侧，GPIO0：打断 / 唤醒 / 配网，烧录时当 BOOT 键用）× 1 |
-| 主板 | 立创开源 [ottoRobot](https://oshwhub.com/txp666/ottorobot) V1.1，作者小鹏（txp666），CC BY-NC-SA 4.0 |
+| 主板 | [立创开源 ottoRobot V1.1，作者小鹏（txp666），CC BY-NC-SA 4.0](https://pro.lceda.cn/editor?jspm=hub.gc.an.sjq&jlc_vid=E1ZXUABREQVYV1wERAcPAVwHQVQIUFxSRAVZUgJTRFIxVlNfRFdXUVJRQFZaXztWKAkaExQVTU5BCBcOAAkbBUoFGAw%3D#id=16252c97e5b14635931de8ce7e3af8dc) |
 | 外壳 | Otto 原版腿、脚、机身底座 + 奶龙 / 看山身体，PLA 或树脂打印 |
-
-:::info 待补充
-整机尺寸、重量、续航时间还没有实测。
-:::
 
 ## 2. 软件规格
 

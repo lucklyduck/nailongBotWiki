@@ -8,7 +8,7 @@ sidebar_label: 物料与工具
 
 | 方式 | 你需要准备 | 适合 |
 |---|---|---|
-| **买套件** | 官方 Otto 套件（主板已焊好、固件已烧好）+ 自己打印奶龙外壳 | 第一次做，想快点看到成品 |
+| **买套件** | 由我们提供完整的零部件套装 | 第一次做，想快点看到成品 |
 | **自己买料** | 下面所有电子件 + 自己打 PCB、焊接 + 打印全部结构件 | 想完整体验一遍，或者想改电路 |
 
 套件购买入口见 ottodiy.tech 的 [零部件清单](https://ottodiy.tech/docs/bom)。注意套件通常包含**手臂**（6 个舵机），奶龙只用 4 个。
@@ -27,7 +27,7 @@ sidebar_label: 物料与工具
 
 | # | 名称 | 型号 / 规格 | 数量 | 备注 |
 |---|---|---|---|---|
-| 1 | 主板 PCB | 立创开源 [ottoRobot V1.1](https://oshwhub.com/txp666/ottorobot) | 1 | 立创可以一键下单，什么都不用改 |
+| 1 | 主板 PCB | 立创开源 [ottoRobot V1.1](https://pro.lceda.cn/editor?jspm=hub.gc.an.sjq&jlc_vid=E1ZXUABREQVYV1wERAcPAVwHQVQIUFxSRAVZUgJTRFIxVlNfRFdXUVJRQFZaXztWKAkaExQVTU5BCBcOAAkbBUoFGAw%3D#id=16252c97e5b14635931de8ce7e3af8dc) | 1 | 立创可以一键下单，什么都不用改 |
 | 2 | 主控模组 | ESP32-S3-WROOM-1U-**N16R8** | 1 | 必须是 16 MB Flash + 8 MB PSRAM。1U 是外接天线版，要配 IPEX 天线；板载天线的 -1 版也能用。推荐乐鑫原厂，便宜模组信号不稳 |
 | 3 | 舵机 | SG90 9g 180° | **4** | 建议多备 1 个；金属齿更耐用 |
 | 4 | 屏幕 | 1.54 寸 240×240 SPI（ST7789） | 1 | 不要买玻璃胶一体款 |
