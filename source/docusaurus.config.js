@@ -83,7 +83,7 @@ const config = {
             title: '资料',
             items: [
               {label: 'ottodiy.tech', href: 'https://ottodiy.tech/docs/downloads/'},
-              {label: '立创开源 ottoRobot', href: 'https://oshwhub.com/txp666/ottorobot'},
+              {label: 'ottoRobot', href: 'https://github.com/txp666/ottodiy-docs'},
               {label: 'xiaozhi.me', href: 'https://xiaozhi.me/'},
             ],
           },
