@@ -84,4 +84,4 @@ sidebar_label: 产品介绍
 
 - [小智 AI（78/xiaozhi-esp32）](https://github.com/78/xiaozhi-esp32)：硬件端对话功能与源码参考
 - [ESP-IDF](https://github.com/espressif/esp-idf)：嵌入式开发、编译与烧录框架
-- [小鹏 ottoRobot](https://oshwhub.com/txp666/ottorobot)：机器人结构与 PCB 开源参考
+- [小鹏 ottoRobot](https://github.com/txp666/ottodiy-docs)：机器人结构与 PCB 开源参考
