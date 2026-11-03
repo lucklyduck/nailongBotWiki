@@ -1,4 +1,4 @@
-<h1 align="center">奶龙机器人实战课 · NailongBotWiki</h1>
+<h1 align="center">NailongBot</h1>
 
 <p align="center">亲手组装、烧录和调试一只会说话、会走路的桌面 AI 伙伴。</p>
 
