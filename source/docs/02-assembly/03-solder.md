@@ -8,7 +8,7 @@ sidebar_label: 焊接主板
 
 买官方套件或者成品板的话，**跳过这一页**。
 
-自己做板：在 [立创开源 ottoRobot](https://oshwhub.com/txp666/ottorobot) 打开 **ottoRobotV1.1** 的 PCB 直接下单，作者说明「什么都不用改」。器件大多可以按 BOM 在立创一键下单，功能键（TS35CA）可能要单独买。
+自己做板：在 **[ottoRobotV1.1](https://pro.lceda.cn/editor?jspm=hub.gc.an.sjq&jlc_vid=E1ZXUABREQVYV1wERAcPAVwHQVQIUFxSRAVZUgJTRFIxVlNfRFdXUVJRQFZaXztWKAkaExQVTU5BCBcOAAkbBUoFGAw%3D#id=16252c97e5b14635931de8ce7e3af8dc)** 的 PCB 直接下单，作者说明「什么都不用改」。器件大多可以按 BOM 在立创一键下单，功能键（TS35CA）可能要单独买。
 
 :::info
 立创工程里还有一个「模块直插新手友好 V1.1」版本，麦克风和功放用模块直插，焊接难度更低，适合第一次焊贴片的人。
