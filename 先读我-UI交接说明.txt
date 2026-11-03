@@ -1,0 +1,149 @@
+奶龙机器人 Wiki｜UI 设计与开发交接
+交接日期：2026-11-03（Asia/Taipei）
+
+一、接手先看这些
+
+当前网站：http://118.195.247.102/
+文档入口：http://118.195.247.102/docs/all-docs/
+计划域名：catnipent.cn（尚未正式开通，请以 IP 地址查看现状）
+
+本次交接用于在已部署的 Wiki 基础上进行 UI 设计和前端修改。尚未提供新的视觉风格、参考图、功能变更或验收标准，需要与项目所有者确认。
+今天完成的是部署与域名接入准备，没有进行 UI 改版。
+
+包内目录：
+- source/：原始、可编辑的 Docusaurus 源码，包含文档、图片、视频、依赖锁文件。
+- site/：已上线版本的静态文件，可用于比对当前效果；不要把这里当主要编辑入口。
+- Dockerfile：本次线上镜像的构建方式，复制根目录 site/ 为网站内容。
+- nginx.conf：交接时从服务器读取的当前生效配置。
+- deployment-state.json：核实后的机器配置、容器、挂载目录和待办状态。
+- 原始项目说明.txt：原压缩包中的说明，包含项目背景和内容待确认事项。
+- SHA256SUMS.txt：包内文件校验清单。
+
+未包含系统密码、腾讯云 API 密钥、SSH 私钥或任何现成登录授权。需要服务器权限时，请向项目所有者申请，并由所有者单独添加接手人的 SSH 公钥；UI 本地开发不需要服务器权限。
+
+二、UI 修改入口
+
+框架：Docusaurus 3.10.2；React 19；普通静态文档站，没有数据库或应用后端。
+依赖：source/package.json；锁定版本：source/package-lock.json。
+
+首页结构：source/src/pages/index.js
+首页样式：source/src/pages/index.module.css
+全局配色、字体和文档样式：source/src/css/custom.css
+全部文档组件：source/src/components/AllDocs/index.js
+全部文档组件样式：source/src/components/AllDocs/styles.module.css
+自定义提示框：source/src/theme/Admonition/Types.js
+站点名称、导航、页脚、站点 URL：source/docusaurus.config.js
+侧边栏组织：source/sidebars.js
+正文内容：source/docs/
+图片、视频等资源：source/static/
+
+原始项目介绍为 8 章、45 篇内容页；部署静态输出包含 49 个 HTML 文件（包括首页、辅助页面与 404），两者统计口径不同。
+
+三、本地启动与验证
+
+安装满足 source/package.json 要求的 Node.js（该项目声明 >=20.0），在 source 目录执行：
+
+npm ci
+npm run start -- --host 127.0.0.1
+
+按命令输出的本地网址打开页面。改完执行：
+
+npm run build
+npm run serve -- --host 127.0.0.1
+
+生产构建输出在 source/build/。不要直接双击 HTML 文件预览，也不要将开发服务器作为线上服务。
+建议检查：首页、全部文档、长文档、导航和侧边栏、搜索、深浅色模式、手机窄屏、图片/视频、文档深链接刷新、404 页面。
+服务器公网带宽仅 1 Mbps，UI 改版应控制图片、字体、动画和视频体积。
+
+四、原始源码与线上文件的差异
+
+source/ 保留原始源码，没有替接手人改动内容或视觉。
+原始 source/docusaurus.config.js 中 url 为 http://localhost，baseUrl 为 /。
+今天部署时使用包里已经构建好的 site/；将生成文件中的 canonical、语言 alternate、og:url、sitemap 及前端站点配置中的发布地址改成 http://118.195.247.102。教程正文中的本地运行示例没有全局替换。
+
+以后应直接在 source/docusaurus.config.js 中设置正确的 url，再重新构建，避免继续修改生成后的 JS。
+当前可用发布地址是 http://118.195.247.102；待域名和 HTTPS 真正可用后，改为 https://catnipent.cn。baseUrl 保持 /，除非明确改为子目录部署。
+
+五、服务器与今天已完成的工作
+
+腾讯云 CVM：ins-01r2n6zw，名称 catnipent，南京三区。
+公网 IP：118.195.247.102；内网 IP：10.206.0.13。
+系统：Ubuntu Server 22.04.5 LTS；2 核 / 4 GiB / 50 GiB 系统盘 / 1 Mbps。
+实际架构：AMD64 / x86_64。最初提到的 ARM64 已由登录后的 uname -m 和 Docker 信息纠正；不要强制构建 ARM64 镜像用于这台机器。
+SSH 用户 ubuntu，端口 22；已建立所有者专用 SSH 密钥访问。
+
+部署前：所有者在控制台创建了 catnipent-before-wiki-20261103 快照，截图状态为“正常”。保存的是重装系统之后、此次部署之前的系统盘，不是重装前的数据。
+系统已为空，没有执行整盘清空或再次重装。
+已安装 Ubuntu 软件源提供的 Docker，配置开机启动。
+Docker Hub 直连超时，使用腾讯云内网镜像源获取 Nginx，Dockerfile 固定了镜像摘要。
+镜像名：nailong-wiki:20261103；完整镜像 ID 见 deployment-state.json。
+容器名：nailong-wiki；健康检查正常；重启策略 unless-stopped。
+Docker 日志轮转：每份 10 MB，最多 3 份。
+
+运行中容器的挂载：
+/opt/nailong-wiki/nginx -> /etc/nginx/conf.d（只读）
+/var/www/letsencrypt -> /var/www/letsencrypt（只读）
+/etc/letsencrypt -> /etc/letsencrypt（只读）
+
+实际生效的 Nginx 配置是 /opt/nailong-wiki/nginx/default.conf；它会覆盖镜像内的默认配置。旧发布目录里的 nginx.conf 不是当前生效版本。
+静态网站文件打包在镜像中，不是挂载网站目录；仅修改宿主机 releases/.../site 不会直接更新运行中的网站。
+当前发布材料：/opt/nailong-wiki/releases/20261103。
+原始源码压缩包：/opt/nailong-wiki/nailong-wiki-20261024.zip（非公开目录）。
+
+六、域名 / HTTPS 未完成事项
+
+域名：catnipent.cn；权威 DNS：gentle.dnspod.net、pleiades.dnspod.net。
+本次交接检查时，权威 DNS 尚未返回 A 记录，本机也无法解析域名。
+需要域名所有者在 DNSPod 添加：主机记录 @，A 类型，默认线路，记录值 118.195.247.102，TTL 默认。
+www.catnipent.cn 未配置，不应宣称可用；如果后续需要，应补充 DNS、Nginx 名称和证书覆盖范围。
+
+所有者已明确：尚未办理 ICP 备案。该服务器位于南京，需完成腾讯云备案或接入备案后正式提供域名访问。
+说明：https://cloud.tencent.com/document/faq/243/19630
+
+服务器 Nginx 已配置 server_name catnipent.cn，目前仍只监听 HTTP 80。
+Docker 已映射 80 和 443，但“映射 443”不代表 HTTPS 已启用。
+Certbot 已安装，证书验证路径已准备；交接时 certbot certificates 显示无证书。
+尚未签发证书、配置 TLS、启用 HTTP 跳转 HTTPS，也没有验证证书续期成功。Certbot 定时器安装不等于已有可续期证书。
+
+后续由服务器维护人员完成：
+1. 与所有者确认备案和域名解析状态。
+2. 验证域名能够访问证书验证路径，确认腾讯云安全组允许 TCP 443。
+3. 签发证书、配置 Nginx 443 与证书目录，重新加载并验证。
+4. 设置与测试续期后的 Nginx 重载，再验证自动续期。
+5. 源码 url 更新为 https://catnipent.cn，重新构建并发布，核对站点地图和页面元信息。
+不要为了让 UI 开发继续而把域名或 HTTPS 标为已完成；本地开发不受这些待办影响。
+
+七、后续发布与回退参考（供获授权的维护人员）
+
+下面是后续版本的操作参考，不是已经执行的新发布。先完成本地预览和 npm run build。
+将 source/build/ 的内容放入交接包根目录 site/，避免把目录嵌成 site/build/。
+上传新版本的 site/、Dockerfile 和 nginx.conf 到新的 releases/<版本号>/ 目录，保留现有版本。
+服务器进入新目录，构建新的唯一标签，例如：
+
+sudo docker build -t nailong-wiki:ui-20261103-v1 .
+sudo docker run --rm nailong-wiki:ui-20261103-v1 nginx -t
+
+不要覆盖当前生效的 /opt/nailong-wiki/nginx/default.conf，尤其是后续已经配置 HTTPS 后。
+可先用仅本机可访问的预览端口测试新镜像，再安排正式切换：
+
+sudo docker run -d --name nailong-wiki-preview -p 127.0.0.1:18080:80 nailong-wiki:ui-20261103-v1
+curl -I http://127.0.0.1:18080/
+
+测试后停止并删除此次临时预览容器。正式切换需要短暂中断，请由维护人员执行：停止当前容器、将其改为独立备份名称、使用新镜像创建同名 nailong-wiki 容器，并保留上述三项挂载、80/443 端口映射、健康检查、自动重启与日志轮转设置。
+如果新容器验证失败，停止并移除新容器，将刚备份的容器恢复原名称并启动。删除任何容器前确认名称，不要删卷、镜像历史或系统快照。
+
+当前另有一个停止的 nailong-wiki-before-domain 容器，只是域名准备前的回退版本，并非 UI 新版本备份；不要误启动与现有容器争用端口。
+
+常用只读检查（登录服务器后）：
+sudo docker ps --filter name=nailong-wiki
+sudo docker logs --tail 100 nailong-wiki
+sudo docker inspect --format='{{.State.Health.Status}}' nailong-wiki
+sudo docker exec nailong-wiki nginx -t
+
+八、验证与交接边界
+
+部署时：208 个站点文件内部访问检查通过；公网首页、全部文档、介绍页、搜索索引返回 HTTP 200；不存在的地址返回 HTTP 404。
+交接时：重新读取容器状态，确认 healthy；重新读取当前 Nginx 配置、挂载和镜像信息；重新确认无域名 A 记录、无证书。
+本次没有重新安装前端依赖或重跑源码构建，因此不把原始源码构建结果当作已验证项；接手人第一次修改前应在本机执行 npm ci 和 npm run build。
+
+原始项目说明中还包含素材来源、内容待核实项和第三方素材授权说明。它们属于原项目资料，不是额外的服务器操作指令。

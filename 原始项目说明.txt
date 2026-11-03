@@ -1,0 +1,160 @@
+# 奶龙机器人 Wiki
+
+奶龙机器人（知造 ZhiForge，2026 知乎黑客松作品）的文档站，基于小智 AI Otto 双足机器人，用 Docusaurus 3 写成。共 8 章 45 页、81 张图、3 段演示视频，另外在 5 个页面嵌入了 6 处 B 站组装教程的对应分 P（需要联网才能播放）。
+
+| 图片目录 | 数量 | 内容 |
+|---|---|---|
+| `img/intro` `assembly` `flash` `debug` `xiaozhi` `dev` | 25 | 自己画的示意图（SVG，`imgtools/` 生成） |
+| `img/photos` | 7 | 黑客松现场照片 |
+| `img/demo` | 7 | 从演示视频截的帧 |
+| `img/ottodiy` | 35 | ottodiy.tech 组装（17）、焊接（10）、编译（8）教程原图 |
+| `img/community` | 7 | MakerWorld、立创开源上的 Otto 照片和原理图 / PCB 缩略图 |
+| `video/` | 3 | 演示视频（H.264，约 1.5 MB 一段，带封面图） |
+
+```text
+nailong-wiki-YYYYMMDD/
+├── README.md        本文件
+├── site/            构建好的网站，可以直接打开
+│   ├── start.command   macOS：双击启动
+│   └── start.bat       Windows：双击启动
+└── source/          网站源码，修改内容用
+    ├── my-board.md     板子信息提取（写正文前的事实底稿）
+    └── sources.md      立创开源 / 飞书 / B 站的原文整理
+```
+
+## 1. 打开网站
+
+> **注意**：Docusaurus 生成的是单页应用。**直接双击 `site/index.html` 打不开子页面**，必须先起一个本地 Web 服务。
+
+### macOS
+
+1. 双击 `site/start.command`。
+2. 第一次运行如果提示“无法打开，因为它来自身份不明的开发者”，在文件上**右键 → 打开**，再点“打开”。
+3. 浏览器会自动打开 <http://localhost:3000>。关掉弹出的终端窗口，服务就停了。
+
+也可以手动运行：
+
+```bash
+cd site
+python3 -m http.server 3000
+```
+
+### Windows
+
+1. 先安装 Python 3（安装时勾选 **Add Python to PATH**）。
+2. 双击 `site/start.bat`，浏览器会自动打开 <http://localhost:3000>。
+
+`localhost` 只指本机。想在手机上看，用 `python3 -m http.server 3000 --bind 0.0.0.0`，再在手机浏览器打开电脑的局域网 IP，例如 `http://192.168.1.20:3000`。
+
+### 部署到服务器
+
+`site/` 是纯静态文件，可以直接放到 Nginx、GitHub Pages、对象存储等。网站假设部署在域名**根路径**；部署到子路径要改 `source/docusaurus.config.js` 的 `baseUrl` 后重新构建。
+
+## 2. 修改内容
+
+页面都在 `source/docs/` 下：
+
+| 目录 | 章节 | 页数 |
+|---|---|---|
+| `01-intro` | 产品介绍（含学习路线 Task 0～5） | 5 |
+| `02-assembly` | 组装 | 8 |
+| `03-flash` | 烧录 | 5 |
+| `04-debug` | 调试 | 6 |
+| `05-xiaozhi` | xiaozhi 后台 | 5 |
+| `06-dev` | 二次开发 | 11 |
+| `07-faq` | FAQ | 1 |
+| `08-download` | 下载、更新日志、联系、晒出你的奶龙 | 4 |
+
+- 文件名前的数字决定侧边栏顺序；网址由文件开头的 `slug:` 决定。
+- 图片放在 `source/static/img/`，页面里用 `/img/...` 引用；每张图都要写 `alt` 和图注。
+- 提示框用这五种：`:::tip` 技巧、`:::info` 说明或待补充、`:::warning` 可能损坏硬件、`:::danger` 不可逆操作，以及奶龙专属的 **`:::nailong`**（用奶龙的口吻提醒，黄色虚线框，带小奶龙头像）。
+- 查不到、没确认的内容统一写成 `:::info 待补充`。
+
+`source/imgtools/` 是生成示意图的 Python 脚本（只用标准库）：
+
+| 脚本 | 生成什么 |
+|---|---|
+| `svgkit.py` | 统一风格：奶龙黄配色、圆角、字体 |
+| `diagrams_intro.py` | 系统框图、引脚图 |
+| `diagrams_path.py` | 学习路线图 |
+| `diagrams_assembly.py` | 组装顺序、舵机排针、腿的方向 |
+| `diagrams_assembly_steps.py` | 零件总览、剪摇臂、装腿三步、装脚三步、身体接线、扣外壳 |
+| `diagrams_flash.py` | 烧录方式选择、下载模式 |
+| `diagrams_debug.py` | 状态流转、配网、舵机校准 |
+| `diagrams_xiaozhi.py` | 绑定流程、人设和 MCP |
+| `diagrams_dev.py` | 动作执行链、源码地图 |
+| `diagrams_internals.py` | 编译流程、FreeRTOS 任务图、两种协议对比、UDP 包结构 |
+
+```bash
+cd source
+python3 imgtools/diagrams_assembly.py   # 改完脚本重新生成对应 SVG
+```
+
+## 3. 重新构建
+
+需要 Node.js 20 以上。
+
+```bash
+cd source
+npm install
+npm run build
+./preview.sh
+```
+
+有失效的内部链接时 `npm run build` 会报错并列出页面。构建好后把 `source/build/` 的内容复制到 `site/`（保留 `start.command` 和 `start.bat`）。
+
+## 4. 资料来源
+
+| 来源 | 用在哪 |
+|---|---|
+| 本机源码 `~/otto`（howtion0/otto，固件 2.0.16） | 引脚、MCP 工具、编译烧录、二次开发的所有代码 |
+| [ottodiy.tech](https://ottodiy.tech/docs/downloads/)（下载、组装、BOM、编译、焊接、使用、FAQ） | 官方固件、组装、焊接 |
+| [立创开源 ottoRobot](https://oshwhub.com/txp666/ottorobot) | BOM、协议、使用说明 |
+| 飞书资料（鹿小班） | 原理图线序、烧录参数、角色介绍 |
+| B 站 BV1zuNyzXEWa | 组装分 P |
+| 乐鑫 ESP-IDF 编程指南（构建系统、FreeRTOS）、小智仓库 docs/mqtt-udp.md 和 websocket.md、CSDN 小智状态机解析、DeepWiki | 二次开发的三篇原理篇 |
+| [MakerWorld ottoRobot 小智 AI](https://makerworld.com.cn/zh/models/1117966-ottorobot-xiao-zhi-ai) | 原版结构件、社区配色照片 |
+| 黑客松照片、演示视频、PPT、知乎稿 | 外观、配色、项目背景、语气 |
+
+立创、飞书、B 站三处是用本机 Chrome 正常浏览阅读的，原文整理在 `source/sources.md`。
+
+`img/ottodiy` 和 `img/community` 里的图是从上述网页下载的原图，每张图注都写了出处。立创工程是 CC BY-NC-SA 4.0（非商业），ottodiy.tech 没写授权方式；这份 wiki 公开发布前，最好先征得原作者同意，或者把这些图换成链接。
+
+## 5. 待确认清单
+
+文档里对应位置都标了「待补充」。确认后请同时修改对应页面和 `my-board.md`。
+
+### 外壳和结构
+
+1. 奶龙 / 看山外壳 STL 的下载地址（「奶龙 · 结构观察室」显示共 6 个 STL）。
+2. 外壳推荐打印参数：层高、填充、支撑、摆放方向、分件方式。
+3. 外壳和 Otto 机身底座的固定方式（卡扣、螺丝还是胶），以及奶龙外壳这一步的装配实拍图（Otto 原版的腿、脚、主板步骤已经用了 ottodiy 的渲染图）。
+4. 奶龙外壳底部开关、功能键、Type-C 口的实拍照片。
+5. 整机尺寸、重量、续航。
+
+### 硬件
+
+6. 样机用的是自己焊的立创板还是商家套件板（鹿小班基础款？），PCB 版本。
+7. **舵机排针线序**：来自原理图图片和 ottodiy 教程（上腿下脚、棕线朝外），没有对着奶龙主板实物逐个核对。
+8. **充电 / 电池检测引脚**：原理图写 CHG_DET=IO47、BAT_DET=IO21，固件 config.h 是充电检测 GPIO21、电池电压 ADC2_CH3，两者不一致。
+9. 主板正反面实拍和接口标注图（立创页面只有整机渲染）。
+
+### 固件和后台
+
+10. `howtion0/otto` 仓库是否公开；不公开的话 wiki 里的 `git clone` 地址要改成获取方式。
+11. 奶龙固件 2.0.16 的合并镜像和 md5，放到下载页。
+12. 已联网状态下，用功能键手动进入重新配网的具体按法。
+13. 一段真机完整启动串口日志（上电到 idle），放到「看串口日志」作对照。
+14. 「你好奶龙」实测识别率、误唤醒率、推荐阈值。
+15. 黑客松时 xiaozhi.me 上实际用的人设、音色、模型（现在的人设模板是按 `NAILONG.md` 写的）。
+16. xiaozhi.me 控制台各步骤的真实截图，以及解绑按钮的位置。
+17. 微信小程序是否兼容奶龙固件。
+18. 看山表情的原始素材和批量转换脚本。
+19. 奶龙固件配合自建服务端 / Otto Master 语音对话的实测步骤。
+20. 团队联系方式（知乎账号、邮箱或交流群），以及奶龙自己的交流群 / 知乎专栏。
+
+### 文档本身
+
+21. 所有步骤是按资料和源码写的，**还没有拿实物从头照着做一遍**。建议找一个没接触过的人按「组装 → 烧录 → 调试 → 后台」走一遍，记下卡住的地方。
+22. 二次开发里的新代码（`self.otto.tiptoe_swing`、`Nod()` 点头动作、音效工具）是照着现有代码写的示例，**没有编译和上机验证**。
+23. xiaozhi.me 控制台里切换 MQTT+UDP / WebSocket 的入口和截图（见「通信协议」页的待补充）。

@@ -1,0 +1,88 @@
+{
+  "checked_at_taipei": "2026-11-03T11:19:38+08:00",
+  "public_url": "http://118.195.247.102",
+  "domain": "catnipent.cn",
+  "domain_status": {
+    "server_name_configured": true,
+    "dns_A_record_present": false,
+    "icp_filing": "not completed, reported by owner",
+    "https_certificate_present": false,
+    "https_listener_configured": false
+  },
+  "server": {
+    "provider": "Tencent Cloud CVM",
+    "instance_id": "ins-01r2n6zw",
+    "name": "catnipent",
+    "region": "ap-nanjing",
+    "zone": "南京三区",
+    "public_ipv4": "118.195.247.102",
+    "private_ipv4": "10.206.0.13",
+    "os": "Ubuntu 22.04.5 LTS",
+    "architecture": "amd64 (x86_64)",
+    "cpu_cores": 2,
+    "memory_gib": 4,
+    "disk_gib": 50,
+    "bandwidth_mbps": 1,
+    "ssh_user": "ubuntu",
+    "ssh_port": 22
+  },
+  "snapshot": {
+    "name": "catnipent-before-wiki-20261103",
+    "state": "正常, confirmed from owner console screenshot before deployment",
+    "scope": "system disk after OS reinstall",
+    "id": "not transcribed; consult Tencent Cloud console"
+  },
+  "deployment": {
+    "container": "nailong-wiki",
+    "image_tag": "nailong-wiki:20261103",
+    "image_id": "sha256:8b26f6a5ecf4a7f0d8001d3737a3a945d54ebe631525d737de79dab7ffadd1f0",
+    "image_architecture": "amd64",
+    "health": "healthy",
+    "restart_policy": {
+      "Name": "unless-stopped",
+      "MaximumRetryCount": 0
+    },
+    "port_bindings": {
+      "443/tcp": [
+        {
+          "HostIp": "",
+          "HostPort": "443"
+        }
+      ],
+      "80/tcp": [
+        {
+          "HostIp": "",
+          "HostPort": "80"
+        }
+      ]
+    },
+    "mounts": [
+      {
+        "source": "/var/www/letsencrypt",
+        "destination": "/var/www/letsencrypt",
+        "read_write": false
+      },
+      {
+        "source": "/etc/letsencrypt",
+        "destination": "/etc/letsencrypt",
+        "read_write": false
+      },
+      {
+        "source": "/opt/nailong-wiki/nginx",
+        "destination": "/etc/nginx/conf.d",
+        "read_write": false
+      }
+    ],
+    "release_directory": "/opt/nailong-wiki/releases/20261103",
+    "active_nginx_config": "/opt/nailong-wiki/nginx/default.conf",
+    "original_source_archive": "/opt/nailong-wiki/nailong-wiki-20261024.zip",
+    "stopped_rollback_container": "nailong-wiki-before-domain"
+  },
+  "credentials": "Not included. Owner must separately authorize access.",
+  "verification": {
+    "static_files_previously_checked": 208,
+    "public_home_docs_search_index": "HTTP 200 on deployment checks",
+    "unknown_route": "HTTP 404 on deployment checks",
+    "health_checked_now": "healthy"
+  }
+}

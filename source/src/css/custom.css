@@ -1,0 +1,132 @@
+/* 全站样式：参考 Luckfox wiki 的简洁风格，主色换成奶龙黄 */
+:root {
+  --ifm-color-primary: #c77c02;
+  --ifm-color-primary-dark: #b37002;
+  --ifm-color-primary-darker: #a96a02;
+  --ifm-color-primary-darkest: #8b5701;
+  --ifm-color-primary-light: #e08c02;
+  --ifm-color-primary-lighter: #f29a08;
+  --ifm-color-primary-lightest: #f6ad37;
+  --ifm-code-font-size: 92%;
+  --ifm-font-family-base: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.08);
+  --board-figure-bg: #f6f8fa;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #f5b83d;
+  --ifm-color-primary-dark: #f3ad22;
+  --ifm-color-primary-darker: #f2a714;
+  --ifm-color-primary-darkest: #d68d0b;
+  --ifm-color-primary-light: #f7c358;
+  --ifm-color-primary-lighter: #f8c966;
+  --ifm-color-primary-lightest: #fad990;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --board-figure-bg: #1e2228;
+}
+
+/* “全部文档”页面只在顶栏出现，不在侧边栏显示 */
+.sidebar-hidden {
+  display: none;
+}
+
+/* 文章里的图片：居中、限制宽度，下方放图注 */
+.markdown img {
+  display: block;
+  margin: 0.5rem auto;
+  max-width: 100%;
+  border-radius: 6px;
+}
+.markdown figure {
+  margin: 1rem 0 1.5rem;
+  text-align: center;
+}
+.markdown figcaption {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}
+.board-svg {
+  background: var(--board-figure-bg);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+/* 表格整宽显示 */
+.markdown table {
+  display: table;
+  width: 100%;
+}
+
+/* 侧边栏一级目录加粗 */
+.theme-doc-sidebar-menu > .menu__list-item > .menu__list-item-collapsible > .menu__link,
+.theme-doc-sidebar-menu > .menu__list-item > .menu__link {
+  font-weight: 600;
+}
+
+/* 接口特写画廊 */
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+.figure-grid figure {
+  margin: 0;
+}
+
+/* 接口特写图不要撑满整栏 */
+.markdown img[src*="/img/closeup/"]:not([src*="annotated"]) {
+  max-width: 480px;
+}
+.figure-grid img[src*="/img/closeup/"] {
+  max-width: 100%;
+}
+.markdown .figure-grid figure {
+  min-width: 0;
+}
+.markdown .figure-grid img {
+  max-width: 100% !important;
+  width: 100%;
+}
+
+/* 奶龙说：:::nailong 提示框，黄底、圆角、带小奶龙头像 */
+.admonition-nailong {
+  margin-bottom: 1em;
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  border: 2px dashed #f2b705;
+  background: #fff8db;
+}
+[data-theme='dark'] .admonition-nailong {
+  background: #3a3112;
+  border-color: #c99a06;
+}
+.admonition-nailong__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.admonition-nailong__head img {
+  width: 28px;
+  height: 28px;
+  margin: 0;
+}
+.admonition-nailong__body > :last-child {
+  margin-bottom: 0;
+}
+
+/* 两列图片网格：组装步骤图、焊接实拍等 */
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 1rem 0 1.5rem;
+}
+.img-grid figure { margin: 0; }
+.img-grid img { width: 100%; height: 200px; object-fit: contain; border-radius: 8px; background: #fff; }
+.img-grid figcaption { font-size: 0.85rem; }
+
+/* B 站播放器：16:9 自适应 */
+.video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 1rem 0 0.4rem; border-radius: 8px; overflow: hidden; background: #000; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

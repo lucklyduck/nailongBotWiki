@@ -1,0 +1,47 @@
+# Node.js dependencies and package-manager caches
+node_modules/
+.npm/
+.pnpm-store/
+
+# Docusaurus generated files
+/source/build/
+.docusaurus/
+.cache/
+
+# Keep site/: Dockerfile uses this deployment snapshot.
+# Keep source/package-lock.json for reproducible installs.
+
+# Python diagram-generator caches
+__pycache__/
+*.pyc
+*.pyo
+
+# Local environment configuration (keep example files)
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.sample
+!.env.template
+
+# Local audit output and connection records
+/outputs/
+
+# Runtime and package-manager logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor temporary files
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating-system metadata
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
