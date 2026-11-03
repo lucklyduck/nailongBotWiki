@@ -7,7 +7,7 @@ const config = {
   tagline: '会说话、会走路、会大笑的小智 Otto 桌面伙伴',
   favicon: 'img/favicon.ico',
 
-  url: 'http://localhost',
+  url: 'https://catnipent.cn',
   baseUrl: '/',
 
   onBrokenLinks: 'throw',
