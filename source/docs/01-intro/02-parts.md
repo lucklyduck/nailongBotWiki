@@ -6,6 +6,8 @@ sidebar_label: 部件与引脚
 
 ## 1. 外观
 
+需要打印外壳、底座、左右卡销、腿和脚时，请使用 [当前八件模型清单](/docs/assembly/print)，每个 STL 各 1 件。
+
 <figure>
   <img src="/img/demo/nailong-front.jpg" alt="黄色奶龙正面：张嘴大笑，双手抱着胸前的屏幕，下面是白色的腿和蓝色的脚" />
   <figcaption>奶龙正面：屏幕在胸口，下面是两条腿和两只脚（截自演示视频）</figcaption>

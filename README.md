@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://nailong.nekokax.com/">在线阅读</a> ·
   <a href="https://nailong.nekokax.com/docs/intro/path">学习路线</a> ·
-  <a href="https://nailong.nekokax.com/docs/assembly/print">外壳下载</a> ·
+  <a href="https://nailong.nekokax.com/docs/assembly/print">模型下载</a> ·
   <a href="https://github.com/lucklyduck/nailongBotWiki/issues">问题反馈</a>
 </p>
 
@@ -21,7 +21,7 @@
 
 课程记录的实物作品由 **知造 ZhiForge（catnipent）** 团队在 2026 知乎黑客松 · 校园新锐季制作。团队在 Otto 双足机器人的基础上加入奶龙 / 看山造型外壳，并在定制固件中加入“你好奶龙”唤醒词、看山表情和奶龙大笑等功能。
 
-本仓库提供课程文档、网站源码、图片和演示视频，以及奶龙外壳 STL 文件。课程目前有 **8 个章节、45 篇文档**，你可以按学习路线完成一台机器人，也可以按问题查阅组装、烧录和调试页面。
+本仓库提供课程文档、网站源码、图片和演示视频，以及完整结构件模型（8 个 STL 与 1 个 3MF 参考工程）。课程目前有 **8 个章节、45 篇文档**，你可以按学习路线完成一台机器人，也可以按问题查阅组装、烧录和调试页面。
 
 ### 适合谁学习
 
@@ -113,7 +113,7 @@
 ### 已提供
 
 - 8 章课程文档，以及配套图片、示意图和演示视频。
-- 奶龙外壳 STL：[下载文件](https://nailong.nekokax.com/downloads/nailong-shell.stl) · [仓库文件](source/static/downloads/nailong-shell.stl)。
+- 完整模型包（2026-11-13）：[本站 ZIP 下载](https://nailong.nekokax.com/downloads/models/2026-11-13/nailong-models-20261113.zip) · [单件清单与打印说明](https://nailong.nekokax.com/docs/assembly/print) · [仓库文件](source/static/downloads/models/2026-11-13/)。8 个 STL 各打印 1 件；3MF 仅含外壳、底座与左右卡销四个对象，不应重复打印。
 - [在线 Wiki](https://nailong.nekokax.com/)，支持目录导航和站内搜索。
 - 基于 Docusaurus 的网站源码与当前发布文件，支持本地预览和修改。
 

@@ -55,20 +55,28 @@ sidebar_label: 物料与工具
 
 ## 3. 打印件
 
-| 零件 | 数量 | 来源 | 购买链接 |
+本 Wiki 统一使用 **2026-11-13 模型包**：8 个 STL（外壳、无手臂底座、左右卡销、左右腿、左右脚）及 1 个 3MF 参考工程。<a href="/downloads/models/2026-11-13/nailong-models-20261113.zip" download="nailong-models-20261113.zip">下载完整模型包（ZIP，10.46 MB）</a>，也可在 [打印外壳](/docs/assembly/print) 按零件下载。文件由本站直接提供，无需网盘。
+
+<div className="purchase-table" role="region" aria-label="打印件与购买链接，可横向滚动" tabIndex={0}>
+
+| 零件 | 数量 | 本站模型下载 | 购买链接 |
 |---|---|---|---|
-| 腿 `Otto_leg` | 2 | Otto 原版，[MakerWorld](https://makerworld.com.cn/zh/models/1117966-ottorobot-xiao-zhi-ai) | [3D 代打印询价][print-order] |
-| 脚 `Otto_foot` | 2 | Otto 原版 | [3D 代打印询价][print-order] |
-| 机身底座 `Otto_body`（**无手臂版**） | 1 | Otto 原版 | [3D 代打印询价][print-order] |
-| 奶龙 / 看山身体外壳 | 1 套 | ZhiForge 建模，见 [打印外壳](/docs/assembly/print) | [3D 代打印询价][print-order] |
+| 身体外壳 | 1 | <a href="/downloads/models/2026-11-13/01-shell.stl" download="01-shell.stl">01_奶蛙外壳.stl</a> | [3D 代打印询价][print-order] |
+| 无手臂机身底座 | 1 | <a href="/downloads/models/2026-11-13/02-body-no-arms.stl" download="02-body-no-arms.stl">02_店家无手body.stl</a> | [3D 代打印询价][print-order] |
+| 右卡销 | 1 | <a href="/downloads/models/2026-11-13/03-right-pin.stl" download="03-right-pin.stl">03_右卡销.stl</a> | [3D 代打印询价][print-order] |
+| 左卡销 | 1 | <a href="/downloads/models/2026-11-13/04-left-pin.stl" download="04-left-pin.stl">04_左卡销.stl</a> | [3D 代打印询价][print-order] |
+| 右腿 | 1 | <a href="/downloads/models/2026-11-13/05-right-leg.stl" download="05-right-leg.stl">05_右腿.stl</a> | [3D 代打印询价][print-order] |
+| 左腿 | 1 | <a href="/downloads/models/2026-11-13/06-left-leg.stl" download="06-left-leg.stl">06_左腿.stl</a> | [3D 代打印询价][print-order] |
+| 左脚 | 1 | <a href="/downloads/models/2026-11-13/07-left-foot.stl" download="07-left-foot.stl">07_左脚.stl</a> | [3D 代打印询价][print-order] |
+| 右脚 | 1 | <a href="/downloads/models/2026-11-13/08-right-foot.stl" download="08-right-foot.stl">08_右脚.stl</a> | [3D 代打印询价][print-order] |
+
+</div>
 
 [print-order]: https://detail.tmall.com/item.htm?id=1062649997018
 
-代打印链接是待询价的服务候选，尚未核验这套模型的具体报价；需要提供自己的 STL、材料、颜色和数量，店铺展示价不代表整套打印费用。
+八个 STL 各打印 1 件。外壳原文件名为 `01_奶蛙外壳.stl`；3MF 是含外壳、底座与左右卡销的四对象参考工程，不计入额外打印数量。不要混用旧版模型；打印参数和试装说明见 [打印外壳](/docs/assembly/print)。
 
-:::warning
-立创开源页面上附的 3D 文件和固件**不是最新的**（作者在评论里说明过），请以 MakerWorld 和 [ottodiy.tech](https://ottodiy.tech/docs/downloads/) 为准。
-:::
+代打印链接是待询价的服务候选，尚未核验这套模型的具体报价；需要提供 STL、材料、颜色和数量，店铺展示价不代表整套打印费用。
 
 ## 4. 舵机配件
 

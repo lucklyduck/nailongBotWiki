@@ -4,6 +4,8 @@ title: 装主板和外壳
 sidebar_label: 装主板和外壳
 ---
 
+先准备当前模型包中的 <a href="/downloads/models/2026-11-13/01-shell.stl" download="01-shell.stl">身体外壳</a>、<a href="/downloads/models/2026-11-13/02-body-no-arms.stl" download="02-body-no-arms.stl">无手臂底座</a>、<a href="/downloads/models/2026-11-13/03-right-pin.stl" download="03-right-pin.stl">右卡销</a>和 <a href="/downloads/models/2026-11-13/04-left-pin.stl" download="04-left-pin.stl">左卡销</a>，各 1 件。完整文件见 [打印外壳](/docs/assembly/print)。以下原版图片和步骤用于装配参考，当前模型的具体配合需要试装核对。
+
 ## 1. 装主板（对应视频 P2）
 
 <figure>
@@ -48,7 +50,7 @@ sidebar_label: 装主板和外壳
 
 ## 2. 扣上奶龙外壳
 
-Otto 原版这一步是扣上方块头盖；奶龙换成奶龙 / 看山的身体外壳。
+Otto 原版这一步是扣上方块头盖；本套方案使用模型包中的身体外壳（原文件名 `01_奶蛙外壳.stl`），不再另找原版头盖或看山外壳。
 
 <figure>
   <img src="/img/ottodiy/assembly-17.webp" alt="渲染图：Otto 原版的方块头盖从上方盖到机身上，头盖前侧有个突起压住电路板" />
@@ -74,9 +76,8 @@ Otto 原版这一步是扣上方块头盖；奶龙换成奶龙 / 看山的身体
   <figcaption>背面（截自演示视频）</figcaption>
 </figure>
 
-:::info 待补充
-- 奶龙外壳和 Otto 机身底座的固定方式（卡扣、螺丝还是胶）
-- 装配顺序的实拍图
+:::info 当前模型的配套零件
+模型包已提供左右卡销各 1 件。卡销的具体安装位置、外壳与底座的固定过程尚未完成实物验证，请先检查模型配合再试装；本页历史示意图不作为新模型固定方式的验证记录。
 :::
 
 :::nailong

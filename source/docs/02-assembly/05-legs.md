@@ -4,6 +4,8 @@ title: 装腿和脚
 sidebar_label: 装腿和脚
 ---
 
+本页使用当前模型包中的 <a href="/downloads/models/2026-11-13/05-right-leg.stl" download="05-right-leg.stl">右腿</a>、<a href="/downloads/models/2026-11-13/06-left-leg.stl" download="06-left-leg.stl">左腿</a>、<a href="/downloads/models/2026-11-13/07-left-foot.stl" download="07-left-foot.stl">左脚</a>、<a href="/downloads/models/2026-11-13/08-right-foot.stl" download="08-right-foot.stl">右脚</a>，各 1 件。底座及左右卡销也请使用 [同一套模型](/docs/assembly/print)，不要混用旧版零件。
+
 ## 1. 装腿（对应视频 P3）
 
 <figure>
@@ -14,7 +16,7 @@ sidebar_label: 装腿和脚
 </figure>
 
 :::info 关于下面的步骤图
-标「渲染图」的来自 ottodiy.tech 的 Otto 原版组装教程，颜色和奶龙样机不一样（原版是灰色身体、粉色脚），但腿脚和底座是同一套零件，装法完全相同。
+标「渲染图」的来自 ottodiy.tech 的 Otto 原版组装教程，颜色和奶龙样机不一样（原版是灰色身体、粉色脚），这些图用于理解装配顺序；当前模型的孔位、配合和左右方向请以下载文件及试装结果为准。
 :::
 
 

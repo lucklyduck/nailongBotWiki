@@ -1,5 +1,7 @@
 # 奶龙机器人 wiki 资料来源整理
 
+> 2026-11-13 更新：当前 Wiki 打印方案统一使用 [本站模型包](https://nailong.nekokax.com/downloads/models/2026-11-13/nailong-models-20261113.zip)（8 个 STL + 1 个 3MF 参考工程）。下文是历史资料来源与原文记录，其中外部模型入口不作为当前配套模型的下载推荐。
+
 > 采集方式：本机 Chrome（Claude in Chrome 扩展）正常浏览，只读，未点击任何提交/购买/评论/下载按钮。采集日期：2026-10-24。
 > 链接里的跟踪参数（`?spm=`、`vd_source=` 等）已去掉。
 

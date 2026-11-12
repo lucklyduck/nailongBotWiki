@@ -21,7 +21,7 @@ sidebar_label: 规格参数
 | 稳压 | HE9073A33M5R 3.3 V LDO |
 | 按键 | 电源拨动开关（身体下方左侧）× 1，功能键（身体下方右侧，GPIO0：打断 / 唤醒 / 配网，烧录时当 BOOT 键用）× 1 |
 | 主板 | [立创开源 ottoRobot V1.1，作者小鹏（txp666），CC BY-NC-SA 4.0](https://pro.lceda.cn/editor?jspm=hub.gc.an.sjq&jlc_vid=E1ZXUABREQVYV1wERAcPAVwHQVQIUFxSRAVZUgJTRFIxVlNfRFdXUVJRQFZaXztWKAkaExQVTU5BCBcOAAkbBUoFGAw%3D#id=16252c97e5b14635931de8ce7e3af8dc) |
-| 外壳 | Otto 原版腿、脚、机身底座 + 奶龙 / 看山身体，PLA 或树脂打印 |
+| 打印结构件 | [当前模型包](/docs/assembly/print)：身体外壳、无手臂底座、左右卡销、左右腿、左右脚；8 个 STL 各 1 件，材料与参数按切片及试装确定 |
 
 ## 2. 软件规格
 
@@ -41,6 +41,6 @@ sidebar_label: 规格参数
 | 方案 | 大约费用 |
 |---|---|
 | 自己买料、自己焊板、自己打印 | ¥200～500，看器件渠道和质量 |
-| 买官方 DIY 套件（固件已预烧），只打印奶龙外壳 | 以店铺价格为准 |
+| 买 DIY 套件，按 [当前模型清单](/docs/assembly/print) 补齐缺少的打印件 | 以店铺包含的零件及报价为准 |
 
 物料明细见 [组装 · 物料与工具](/docs/assembly/prepare)。

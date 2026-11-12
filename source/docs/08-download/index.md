@@ -32,9 +32,12 @@ sidebar_label: 下载
 | 名称 | 地址 |
 |---|---|
 | 主板（原理图、PCB、BOM） | [立创开源 ottoRobot](https://oshwhub.com/txp666/ottorobot) |
-| 结构件 STL | [MakerWorld · ottoRobot 小智 AI](https://makerworld.com.cn/zh/models/1117966-ottorobot-xiao-zhi-ai) |
+| 完整打印模型（2026-11-13） | <a href="/downloads/models/2026-11-13/nailong-models-20261113.zip" download="nailong-models-20261113.zip">下载完整模型包（ZIP，10.46 MB）</a>；8 个 STL + 1 个 3MF 参考工程 |
+| 单件 STL 与数量 | [八件打印清单](/docs/assembly/print) |
+| 3MF 参考工程 | <a href="/downloads/models/2026-11-13/reference-project.3mf" download="reference-project.3mf">下载</a>；只含外壳、底座与左右卡销，不与 STL 重复打印 |
+| 文件校验 | <a href="/downloads/models/2026-11-13/SHA256SUMS.txt" download="SHA256SUMS.txt">SHA-256 清单</a> |
 | 零部件清单 | [ottodiy.tech/docs/bom](https://ottodiy.tech/docs/bom) |
-| 奶龙 / 看山外壳 | 待补充 |
+| 当前身体外壳 | <a href="/downloads/models/2026-11-13/01-shell.stl" download="01-shell.stl">外壳 STL</a>，原名 `01_奶蛙外壳.stl`；本包不含额外看山外壳 |
 
 ## 4. 工具
 

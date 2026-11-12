@@ -4,45 +4,55 @@ title: 打印外壳
 sidebar_label: 打印外壳
 ---
 
-## 1. 简介
+## 1. 当前模型包
 
-奶龙机器人 = Otto 原版的**腿、脚、机身底座** + 奶龙 / 看山造型的**身体外壳**。原版零件照常打印，外壳是 ZhiForge 在黑客松上建模的。
+本 Wiki 统一使用 **2026-11-13 模型包**：8 个 STL（外壳、无手臂底座、左右卡销、左右腿、左右脚）及 1 个 3MF 参考工程。<a href="/downloads/models/2026-11-13/nailong-models-20261113.zip" download="nailong-models-20261113.zip">下载完整模型包（ZIP，10.46 MB）</a>，也可在 [打印外壳](/docs/assembly/print) 按零件下载。文件由本站直接提供，无需网盘。
+
+原始压缩包名为 `02_STL_单件落地(1).zip`，站内下载使用简短英文文件名；压缩包内容和所有模型文件均保持原始字节不变。旧版外壳、MakerWorld 原版结构件和历史预览不再作为本教程的打印下载方案。
 
 <figure>
-  <img src="/img/photos/hero-three-robots.jpg" alt="三只样机：黄色奶龙和两只灰白色看山，腿是白色、脚是蓝色" />
-  <figcaption>样机配色：奶龙黄 / 看山灰白身体，白色腿，蓝色脚</figcaption>
+  <img src="/img/photos/hero-three-robots.jpg" alt="历史样机：黄色奶龙和灰白色看山，白色腿、蓝色脚" />
+  <figcaption>历史样机配色参考；本次模型包只有下表列出的造型与零件</figcaption>
 </figure>
 
-## 2. 原版结构件
+## 2. 八个 STL，逐件下载
 
-从 [MakerWorld · ottoRobot 小智 AI](https://makerworld.com.cn/zh/models/1117966-ottorobot-xiao-zhi-ai) 下载 STL。机身选**无手臂版**，腿打 2 个、脚打 2 个。
+按下表每个 STL 打印 1 件，共 8 件。左右腿、左右脚和左右卡销已经分别提供，不需要用同一个文件镜像生成另一侧。
 
-| 零件 | 数量 | 样机颜色 | 材料 |
+<div className="purchase-table" role="region" aria-label="打印模型与单件下载，可横向滚动" tabIndex={0}>
+
+| 零件 | 压缩包内原始文件名 | 数量 | 本站下载 |
 |---|---|---|---|
-| `Otto_body`（无手臂） | 1 | 蓝色 | PLA 或树脂 |
-| `Otto_leg` | 2 | 白色 | PLA 或树脂 |
-| `Otto_foot` | 2 | 蓝色 | PLA 或树脂 |
+| 身体外壳 | `01_奶蛙外壳.stl` | 1 | <a href="/downloads/models/2026-11-13/01-shell.stl" download="01-shell.stl">STL 下载</a> |
+| 无手臂机身底座 | `02_店家无手body.stl` | 1 | <a href="/downloads/models/2026-11-13/02-body-no-arms.stl" download="02-body-no-arms.stl">STL 下载</a> |
+| 右卡销 | `03_右卡销.stl` | 1 | <a href="/downloads/models/2026-11-13/03-right-pin.stl" download="03-right-pin.stl">STL 下载</a> |
+| 左卡销 | `04_左卡销.stl` | 1 | <a href="/downloads/models/2026-11-13/04-left-pin.stl" download="04-left-pin.stl">STL 下载</a> |
+| 右腿 | `05_右腿.stl` | 1 | <a href="/downloads/models/2026-11-13/05-right-leg.stl" download="05-right-leg.stl">STL 下载</a> |
+| 左腿 | `06_左腿.stl` | 1 | <a href="/downloads/models/2026-11-13/06-left-leg.stl" download="06-left-leg.stl">STL 下载</a> |
+| 左脚 | `07_左脚.stl` | 1 | <a href="/downloads/models/2026-11-13/07-left-foot.stl" download="07-left-foot.stl">STL 下载</a> |
+| 右脚 | `08_右脚.stl` | 1 | <a href="/downloads/models/2026-11-13/08-right-foot.stl" download="08-right-foot.stl">STL 下载</a> |
 
-MakerWorld 上的 3MF 打印方案不完整，建议下载最新版的 STL 自己切片。
+</div>
 
-## 3. 奶龙 / 看山外壳
+外壳原文件名为 `01_奶蛙外壳.stl`，这里保留原始命名便于核对。当前包没有另一套看山外壳。8 个 STL 均已检查三角面数据长度与顶点坐标，模型最低点在 Z=0；这不等于已完成打印与装配实测。
 
-<figure>
-  <img src="/img/demo/pair.jpg" alt="灰白色看山和黄色奶龙并排站着，都抱着胸前的屏幕" />
-  <figcaption>两种外壳：看山（左）和奶龙（右），腿脚是同一套 Otto 原版件（截自演示视频）</figcaption>
-</figure>
+STL 不自带单位，导入切片软件后按毫米核对尺寸，避免自动缩放：外壳约 **107.6 × 118.3 × 112.6 mm**，底座约 **69 × 69 × 42 mm**，每条腿约 **17 × 41.5 × 40 mm**，每只脚约 **42 × 64 × 27 mm**，每个卡销约 **24.4 × 13 × 13 mm**（模型坐标轴方向的包围盒尺寸）。
 
-外壳可以先在「奶龙 · 结构观察室」（model.zhiforge.org）里在线预览：按实物照片装配，黄色外壳、白色双腿、四个关节，共 6 个 STL。
+## 3. 3MF 参考工程与文件校验
 
-**奶龙外壳 STL 文件**
+<a href="/downloads/models/2026-11-13/reference-project.3mf" download="reference-project.3mf">下载 3MF 参考工程</a>，原文件名为 `04_左卡销.3mf`。
 
-<a href="/downloads/nailong-shell.stl" download="nailong-shell.stl">下载我们提供的奶龙外壳 STL（约 1.8 MB）</a>
+:::warning 这个 3MF 不只是左卡销，也不是整套八件
+工程包含 **外壳、无手臂底座、右卡销、左卡销** 4 个对象，不含腿和脚。如果已经按上表打印 8 个 STL，不要再把 3MF 中的同名零件重复打印。导入工程后，核对打印机、材料、支撑、缩放和对象数量，再自行切片。
+:::
 
-下载后可导入切片软件，进行摆放、支撑设置和打印准备。
+<a href="/downloads/models/2026-11-13/manifest.json">查看文件清单与 SHA-256</a> · <a href="/downloads/models/2026-11-13/SHA256SUMS.txt" download="SHA256SUMS.txt">下载 SHA256SUMS.txt</a>
 
-### 3.1 换个配色？
+校验值可以确认下载是否完整。下载链接带有版本日期，后续更新会使用新的版本目录，便于保留和回溯。
 
-奶龙外壳也是在 Otto 上「换皮」。社区里的 Otto 配色可以当参考：
+## 4. 配色参考
+
+以下是历史样机与 Otto 社区的配色参考，不代表本模型包另含看山或其他造型的模型：
 
 <div className="img-grid">
   <figure>
@@ -63,14 +73,9 @@ MakerWorld 上的 3MF 打印方案不完整，建议下载最新版的 STL 自�
   </figure>
 </div>
 
-## 4. 打印建议
+## 5. 打印与试装建议
 
-这些是通用建议，不是针对奶龙外壳的实测参数：
-
-- 腿和脚受力大，填充率给高一点（30% 以上）。
-- 摇臂和螺丝孔要尺寸准确，打印后先试装，孔小了用钻头或螺丝刀轻轻扩一下。
-- 清干净支撑，尤其是舵机槽和螺丝孔里。
-
-:::nailong
-打印之前先想好颜色！我是奶龙黄，旁边那只灰白色的是看山。你想要粉色奶龙也不是不行。
-:::
+- 当前文件已落地放置，但摆放方向、层高、填充率和支撑仍需根据设备、材料及切片预览确定；尚无本套模型的统一实测参数。
+- 腿脚和卡销应先检查受力位置与孔位，清理舵机槽、摇臂槽及螺丝孔中的支撑，再试装。
+- 先核对左右件、舵机、屏幕和底座的配合，确认无干涉后再固定。原版组装图片用于理解顺序，具体孔位以当前文件与实际零件为准。
+- 委托代打印时，发送完整模型包及“8 个 STL 各 1 件”的清单，同时确认材料、颜色、支撑处理和报价。

@@ -1,0 +1,84 @@
+{
+  "version": "2026-11-13",
+  "archive": {
+    "original_filename": "02_STL_单件落地(1).zip",
+    "filename": "nailong-models-20261113.zip",
+    "bytes": 10459005,
+    "sha256": "19f66fcab93b6017d0fcb332959c4604ef8492ff116fb9d064d8757189f93b94"
+  },
+  "files": [
+    {
+      "original_filename": "01_奶蛙外壳.stl",
+      "filename": "01-shell.stl",
+      "part": "身体外壳",
+      "print_quantity": 1,
+      "bytes": 11116684,
+      "sha256": "6d05c9884e313832dadd5ff0fbfddd171634d05666671676d1269cf40d03fb30"
+    },
+    {
+      "original_filename": "02_店家无手body.stl",
+      "filename": "02-body-no-arms.stl",
+      "part": "无手臂机身底座",
+      "print_quantity": 1,
+      "bytes": 491784,
+      "sha256": "9368f0eef4bf9bfab9270fc8849ec329242e6cb85a6038e9368863ea17fa1011"
+    },
+    {
+      "original_filename": "03_右卡销.stl",
+      "filename": "03-right-pin.stl",
+      "part": "右卡销",
+      "print_quantity": 1,
+      "bytes": 76184,
+      "sha256": "09df2e3b295212b3bd8f9501f67606416de2300175711a7b59f48b31990e8e37"
+    },
+    {
+      "original_filename": "04_左卡销.stl",
+      "filename": "04-left-pin.stl",
+      "part": "左卡销",
+      "print_quantity": 1,
+      "bytes": 76184,
+      "sha256": "434d4fb89b1e52cd2aabbc4f2913f36a08ccfe0fd3ff97019a164aedd633299b"
+    },
+    {
+      "original_filename": "05_右腿.stl",
+      "filename": "05-right-leg.stl",
+      "part": "右腿",
+      "print_quantity": 1,
+      "bytes": 1439384,
+      "sha256": "fa46ff06be5b37df4ce530e1cf02d5dd261abf0e46da4edf6b55d9ee25644070"
+    },
+    {
+      "original_filename": "06_左腿.stl",
+      "filename": "06-left-leg.stl",
+      "part": "左腿",
+      "print_quantity": 1,
+      "bytes": 1439384,
+      "sha256": "17d5c6a5dd2942624cd2d05848198a7ccc07695792f39a7291df84a460c00de2"
+    },
+    {
+      "original_filename": "07_左脚.stl",
+      "filename": "07-left-foot.stl",
+      "part": "左脚",
+      "print_quantity": 1,
+      "bytes": 1127984,
+      "sha256": "518d8ff3eb2e839b8f5b615d4fbaf9b6fa52f9bb6e90bea0943c4248b1147e95"
+    },
+    {
+      "original_filename": "08_右脚.stl",
+      "filename": "08-right-foot.stl",
+      "part": "右脚",
+      "print_quantity": 1,
+      "bytes": 1127984,
+      "sha256": "ec8d254545d6e6f818472751f72ddd7d35113e23dd5693eaebd7c3b6eb854bc6"
+    },
+    {
+      "original_filename": "04_左卡销.3mf",
+      "filename": "reference-project.3mf",
+      "part": "四对象参考工程",
+      "print_quantity": null,
+      "bytes": 3529940,
+      "sha256": "349dcd7ce5ce66b9f241c8ddfd58d52240dd479f0418a07fe1633392718cafc9"
+    }
+  ],
+  "note": "原始文件字节未修改；8 个 STL 各 1 件。3MF 含外壳、底座、左右卡销四个对象，不含腿脚；勿与 STL 重复打印。STL 无内置单位，导入后核对毫米尺寸。"
+}
