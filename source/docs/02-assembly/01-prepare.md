@@ -25,34 +25,46 @@ sidebar_label: 物料与工具
 
 ## 2. 电子件
 
-| # | 名称 | 型号 / 规格 | 数量 | 备注 |
-|---|---|---|---|---|
-| 1 | 主板 PCB | 立创开源 [ottoRobot V1.1](https://pro.lceda.cn/editor?jspm=hub.gc.an.sjq&jlc_vid=E1ZXUABREQVYV1wERAcPAVwHQVQIUFxSRAVZUgJTRFIxVlNfRFdXUVJRQFZaXztWKAkaExQVTU5BCBcOAAkbBUoFGAw%3D#id=16252c97e5b14635931de8ce7e3af8dc) | 1 | 立创可以一键下单，什么都不用改 |
-| 2 | 主控模组 | ESP32-S3-WROOM-1U-**N16R8** | 1 | 必须是 16 MB Flash + 8 MB PSRAM。1U 是外接天线版，要配 IPEX 天线；板载天线的 -1 版也能用。推荐乐鑫原厂，便宜模组信号不稳 |
-| 3 | 舵机 | SG90 9g 180° | **4** | 建议多备 1 个；金属齿更耐用 |
-| 4 | 屏幕 | 1.54 寸 240×240 SPI（ST7789） | 1 | 不要买玻璃胶一体款 |
-| 5 | 功放 | MAX98357AETE+T | 1 | 建议立创货。有人反馈淘宝货喇叭噪音大、发热、掉电快 |
-| 6 | 麦克风 | ICS-43434 | 1 | INMP441 模块也可以 |
-| 7 | 充电芯片 | TP4054 | 1 | |
-| 8 | 稳压 | HE9073A33M5R（3.3 V） | 1 | |
-| 9 | 喇叭 | 2828 4Ω 3W，1.25 mm 端子 | 1 | |
-| 10 | 电池 | 103450 2000 mAh（1.25 端子）或双 18650 包 3.7 V（PH2.0） | 1 | 买的时候说明要红黑线 |
-| 11 | 电源开关 | XKB5858-Z-E 拨动开关 | 1 | |
-| 12 | 功能键 | TS35CA 轻触按键 | 1 | 有的店铺清单里叫 BOOT 键，立创一键下单可能不含，需要单独买 |
-| 13 | 舵机排针 | 2.54 mm 2×3P（PZ254-2-03-S） | 2 | 原板有 3 组，第 3 组接手臂，奶龙可以不焊 |
-| 14 | 接口座 | HC-1.25 2P（喇叭）、PH2.0 2P（电池） | 各 1 | |
-| 15 | 阻容等 | 见立创 BOM | — | 一键下单 |
+购买链接整理于 2026-11-13，规格和价格以商品页为准。标注“待核对”的候选需确认接口、尺寸或焊盘后再购买。
+
+<div className="purchase-table" role="region" aria-label="电子件与购买链接，可横向滚动" tabIndex={0}>
+
+| # | 名称 | 型号 / 规格 | 数量 | 备注 | 购买链接 |
+|---|---|---|---|---|---|
+| 1 | 主板 PCB | 立创开源 [ottoRobot V1.1](https://pro.lceda.cn/editor?jspm=hub.gc.an.sjq&jlc_vid=E1ZXUABREQVYV1wERAcPAVwHQVQIUFxSRAVZUgJTRFIxVlNfRFdXUVJRQFZaXztWKAkaExQVTU5BCBcOAAkbBUoFGAw%3D#id=16252c97e5b14635931de8ce7e3af8dc) | 1 | 按实际工程版本在立创下单 | [立创工程与打板入口][pcb-order] |
+| 2 | 主控模组 | ESP32-S3-WROOM-1U-**N16R8** | 1 | 必须是 16 MB Flash + 8 MB PSRAM。1U 是外接天线版，要配 IPEX 天线；板载天线的 -1 版也能用。推荐乐鑫原厂；天线候选的接口代际和线长待核对 | [乐鑫 N16R8 模组](https://item.taobao.com/item.htm?id=669879816972&skuId=5928281003813)<br/>[2.4GHz IPEX 天线（待核对）](https://detail.tmall.com/item.htm?id=1036822881394) |
+| 3 | 舵机 | SG90 9g 180° | **4** | 建议多备 1 个；金属齿更耐用。链接选 SG90 180°、带小 5 孔配件 | [奥克欧 SG90](https://detail.tmall.com/item.htm?id=1077417446369&skuId=6294440894121) |
+| 4 | 屏幕 | 1.54 寸 240×240 SPI（ST7789） | 1 | 链接选京东方玻璃胶框裸屏，不要选玻璃胶铁一体款 | [中景园屏幕](https://item.taobao.com/item.htm?id=600653923469&skuId=4193330464745) |
+| 5 | 功放 | MAX98357AETE+T | 1 | 建议立创货。有人反馈淘宝货喇叭噪音大、发热、掉电快。链接为 TQFN-16 裸芯片，不是功放模块 | [佳信源功放芯片](https://item.taobao.com/item.htm?id=656824352017&skuId=4740462420725) |
+| 6 | 麦克风 | ICS-43434 | 1 | 选择 ICS-43434，不要误选同页 ZTS6672。INMP441 模块需按主板方案适配 | [启天芯云 ICS-43434](https://item.taobao.com/item.htm?id=1027088727329&skuId=6274228647907) |
+| 7 | 充电芯片 | TP4054 | 1 | 链接选 TP4054-42-SOT25R、SOT-23-5 | [佳信源 TP4054](https://item.taobao.com/item.htm?id=684690901003&skuId=5068394135896) |
+| 8 | 稳压 | HE9073A33M5R（3.3 V） | 1 | 选择 3.3 V、SOT-23-5 | [凌芯稳压芯片](https://item.taobao.com/item.htm?id=1039420678320) |
+| 9 | 喇叭 | 2828 4Ω 3W，1.25 mm 端子 | 1 | 选择 4R3W、2P1.25 银色款 | [芯创力喇叭](https://item.taobao.com/item.htm?id=939688934199&skuId=5836086884093)<br/>[兴华鑫喇叭（备选）](https://item.taobao.com/item.htm?id=857879179989&skuId=5670264693293) |
+| 10 | 电池 | 103450 2000 mAh（1.25 端子）或双 18650 包 3.7 V（PH2.0） | 1 | 两种方案选一种。确认红黑线、插头和极性与主板一致；103450 链接的端子待确认，18650 候选的双电芯结构待确认 | [103450 2000mAh（端子待核对）](https://detail.tmall.com/item.htm?id=638394813102&skuId=4890126332973)<br/>[倍量 18650 PH 接口（结构待核对）](https://detail.tmall.com/item.htm?id=734363822390) |
+| 11 | 电源开关 | XKB5858-Z-E 拨动开关 | 1 | 主链接为指定型号；备选为 5.8×5.8 侧插 6 脚自锁通用款，焊盘和尺寸待核对 | [XKB5858-Z-E](https://item.taobao.com/item.htm?id=781094702611)<br/>[思诚达通用款（待核对）](https://detail.tmall.com/item.htm?id=631520524805&skuId=4680509671372) |
+| 12 | 功能键 | TS35CA 轻触按键 | 1 | 有的店铺清单里叫 BOOT 键，立创一键下单可能不含，需要单独买。链接为 3.3×4.5×6H 通用候选，非已确认的 TS35CA 原品牌，需核对按键高度和脚位 | [温州跃一 BOOT 按键（待核对）](https://item.taobao.com/item.htm?id=619380317760&skuId=4915088025515) |
+| 13 | 舵机排针 | 2.54 mm 2×3P（PZ254-2-03-S） | 2 | 原板有 3 组，第 3 组接手臂，奶龙可以不焊；链接选 2×3P，焊盘形式待核对 | [2.54mm 2×3P 排针](https://item.taobao.com/item.htm?id=700748964957&skuId=5120840371371) |
+| 14 | 接口座 | HC-1.25 2P（喇叭）、PH2.0 2P（电池） | 各 1 | 喇叭座 10 只/包，电池座 20 只/包；均为立贴候选，核对 PCB 焊盘及电池插头，不能仅按间距混用 | [1.25mm 2P 喇叭座](https://item.taobao.com/item.htm?id=528734911747&skuId=4981522281625)<br/>[PH2.0 2P 电池座](https://item.taobao.com/item.htm?id=676352225666&skuId=4862819477391) |
+| 15 | 阻容等 | 见立创 BOM | — | 按最终 BOM 的数值、封装和用量下单 | [立创工程与 BOM 入口][pcb-order] |
+
+</div>
+
+[pcb-order]: https://pro.lceda.cn/editor?jspm=hub.gc.an.sjq&jlc_vid=E1ZXUABREQVYV1wERAcPAVwHQVQIUFxSRAVZUgJTRFIxVlNfRFdXUVJRQFZaXztWKAkaExQVTU5BCBcOAAkbBUoFGAw%3D#id=16252c97e5b14635931de8ce7e3af8dc
 
 整机物料大约 ¥150～500，看渠道和器件质量。
 
 ## 3. 打印件
 
-| 零件 | 数量 | 来源 |
-|---|---|---|
-| 腿 `Otto_leg` | 2 | Otto 原版，[MakerWorld](https://makerworld.com.cn/zh/models/1117966-ottorobot-xiao-zhi-ai) |
-| 脚 `Otto_foot` | 2 | Otto 原版 |
-| 机身底座 `Otto_body`（**无手臂版**） | 1 | Otto 原版 |
-| 奶龙 / 看山身体外壳 | 1 套 | ZhiForge 建模，见 [打印外壳](/docs/assembly/print) |
+| 零件 | 数量 | 来源 | 购买链接 |
+|---|---|---|---|
+| 腿 `Otto_leg` | 2 | Otto 原版，[MakerWorld](https://makerworld.com.cn/zh/models/1117966-ottorobot-xiao-zhi-ai) | [3D 代打印询价][print-order] |
+| 脚 `Otto_foot` | 2 | Otto 原版 | [3D 代打印询价][print-order] |
+| 机身底座 `Otto_body`（**无手臂版**） | 1 | Otto 原版 | [3D 代打印询价][print-order] |
+| 奶龙 / 看山身体外壳 | 1 套 | ZhiForge 建模，见 [打印外壳](/docs/assembly/print) | [3D 代打印询价][print-order] |
+
+[print-order]: https://detail.tmall.com/item.htm?id=1062649997018
+
+代打印链接是待询价的服务候选，尚未核验这套模型的具体报价；需要提供自己的 STL、材料、颜色和数量，店铺展示价不代表整套打印费用。
 
 :::warning
 立创开源页面上附的 3D 文件和固件**不是最新的**（作者在评论里说明过），请以 MakerWorld 和 [ottodiy.tech](https://ottodiy.tech/docs/downloads/) 为准。

@@ -56,6 +56,15 @@
   display: table;
   width: 100%;
 }
+.purchase-table {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+.purchase-table table {
+  min-width: 800px;
+  margin-bottom: 0;
+}
 
 /* 侧边栏一级目录加粗 */
 .theme-doc-sidebar-menu > .menu__list-item > .menu__list-item-collapsible > .menu__link,
