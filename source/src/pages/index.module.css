@@ -76,7 +76,7 @@
 }
 .photos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin-bottom: 2rem;
 }
@@ -94,6 +94,20 @@
   font-size: 0.85rem;
   color: var(--ifm-color-emphasis-700);
 }
+.photo img.photoContain {
+  object-fit: contain;
+  background: #fff;
+}
 .sectionTitle {
   margin-bottom: 1rem;
+}
+@media (max-width: 996px) {
+  .photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .photos {
+    grid-template-columns: 1fr;
+  }
 }

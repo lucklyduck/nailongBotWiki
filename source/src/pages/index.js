@@ -9,6 +9,8 @@ const photos = [
   {src: '/img/demo/pair.jpg', alt: '灰白色看山和黄色奶龙并排站在木地板上，都抱着胸前的屏幕', cap: '看山和奶龙'},
   {src: '/img/photos/model-viewer.jpg', alt: '手机上的奶龙结构观察室页面，显示黄色奶龙外壳、白色双腿和四个关节的三维模型', cap: '先在屏幕里看，再动手'},
   {src: '/img/photos/team.jpg', alt: 'catnipent 团队成员和知乎吉祥物刘看山在 2026 知乎黑客松背景板前合影', cap: '2026 知乎黑客松 · catnipent'},
+  {src: '/img/photos/team-logo.jpg', alt: 'Catnipent 团队 logo：绿色叶片、粉色节点与蓝色英文标识', cap: '团队logo', contain: true},
+  {src: '/img/photos/maker-journey.png', alt: '黄色奶龙 DIY 海报：从零件到桌面伙伴，配套 Wiki 图文教程，完成组装、烧录、配网和调试', cap: '开启制造之旅', contain: true},
 ];
 
 const entries = [
@@ -63,7 +65,7 @@ export default function Home() {
         <div className={styles.photos}>
           {photos.map((p) => (
             <figure key={p.src} className={styles.photo}>
-              <img src={useBaseUrl(p.src)} alt={p.alt} loading="lazy" />
+              <img className={p.contain ? styles.photoContain : undefined} src={useBaseUrl(p.src)} alt={p.alt} loading="lazy" />
               <figcaption>{p.cap}</figcaption>
             </figure>
           ))}
