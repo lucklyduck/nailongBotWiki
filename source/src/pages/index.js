@@ -79,6 +79,12 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        <p className="margin-top--lg">
+          <strong>一键购买获得完整套件：</strong>
+          <a href="https://e.tb.cn/h.j8ScmrB2vTg7gFa?tk=hm5D6W4b1Ag" target="_blank" rel="noopener noreferrer">
+            Nailongbot—桌面陪伴机器人教学套件
+          </a>
+        </p>
       </main>
     </Layout>
   );
