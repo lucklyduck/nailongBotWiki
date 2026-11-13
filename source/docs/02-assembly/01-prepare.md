@@ -51,6 +51,8 @@ sidebar_label: 物料与工具
 
 ## 3. 打印件
 
+Wiki中有全套开源外壳可自行下载打印
+
 <div className="purchase-table" role="region" aria-label="打印件与购买链接，可横向滚动" tabIndex={0}>
 
 | 零件 | 数量 | 本站模型下载 | 购买链接 |
