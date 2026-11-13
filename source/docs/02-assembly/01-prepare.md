@@ -19,8 +19,8 @@ sidebar_label: 物料与工具
 </figure>
 
 <figure>
-  <img src="/img/ottodiy/assembly-01.webp" alt="实拍：桌上平铺着锂电池、主板、天线、喇叭、几个蓝色舵机和一堆白色 3D 打印零件" />
-  <figcaption>实拍：Otto 原版的全部材料（来源：ottodiy.tech 组装教程 图 1）</figcaption>
+  <img src="/img/assembly/parts-yellow-shell-20261113.png" alt="配件示意图：黄色身体外壳与白色底座、腿脚摆在桌面，旁边保留锂电池、主板、天线、喇叭及四个蓝色舵机" />
+  <figcaption>配件示意图：依据本套 STL 替换为黄色上半身外壳，保留原图电子件（基于 ottodiy.tech 组装教程图 1 编辑，非整套实拍；零件数量以清单为准）</figcaption>
 </figure>
 
 ## 2. 电子件
