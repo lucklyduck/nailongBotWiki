@@ -25,8 +25,6 @@ sidebar_label: 物料与工具
 
 ## 2. 电子件
 
-购买链接整理于 2026-11-13，规格和价格以商品页为准。标注“待核对”的候选需确认接口、尺寸或焊盘后再购买。
-
 <div className="purchase-table" role="region" aria-label="电子件与购买链接，可横向滚动" tabIndex={0}>
 
 | # | 名称 | 型号 / 规格 | 数量 | 备注 | 购买链接 |
