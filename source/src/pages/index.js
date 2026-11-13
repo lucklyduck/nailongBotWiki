@@ -24,6 +24,12 @@ const entries = [
   {title: '8. 下载', to: '/docs/download', desc: '固件、源码、工具、晒出你的奶龙'},
 ];
 
+const communities = [
+  {title: 'Datawhale 组队学习课程群', src: '/img/community/qr/datawhale-course.jpg', description: '一起学习、组装与交流', width: '100%', left: '0%', top: '0%'},
+  {title: 'Catnipent 开源项目交流群', src: '/img/community/qr/catnipent-group.jpg', description: '交流开源项目与 AI + X 创意', note: '此群码有效至 11 月 20 日，过期可联系 kyle。', width: '143.31%', left: '-21.58%', top: '-66.19%'},
+  {title: '课程设计者 kyle 的微信', src: '/img/community/qr/kyle-wechat.jpg', description: '欢迎来打扰', width: '142.51%', left: '-21.34%', top: '-61.27%'},
+];
+
 export default function Home() {
   return (
     <Layout title="首页" description="奶龙机器人 Wiki">
@@ -52,6 +58,31 @@ export default function Home() {
           />
         </div>
       </header>
+      <section className={styles.community} aria-labelledby="community-title">
+        <div className="container">
+          <h2 id="community-title">项目相关交流群</h2>
+          <div className={styles.communityGrid}>
+            {communities.map((group) => (
+              <article className={styles.communityCard} key={group.src}>
+                <h3>{group.title}</h3>
+                <p>{group.description}</p>
+                <a
+                  className={styles.qrWindow}
+                  href={useBaseUrl(group.src)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`查看${group.title}二维码原图`}
+                  style={{'--qr-width': group.width, '--qr-left': group.left, '--qr-top': group.top}}
+                >
+                  <img src={useBaseUrl(group.src)} alt={`${group.title}二维码`} loading="lazy" />
+                </a>
+                <span className={styles.qrHint}>微信扫码 · 点击查看原图</span>
+                {group.note && <small className={styles.qrNote}>{group.note}</small>}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className={styles.slogan}>
         <div className="container">
           <h2>一句话 + 一根数据线，把心痒变成实物</h2>

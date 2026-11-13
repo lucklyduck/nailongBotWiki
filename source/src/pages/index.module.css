@@ -101,9 +101,73 @@
 .sectionTitle {
   margin-bottom: 1rem;
 }
+.community {
+  padding: 2.5rem 0;
+  background: var(--ifm-background-color);
+}
+.community h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.communityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.communityCard {
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-top: 4px solid var(--ifm-color-primary);
+  border-radius: 12px;
+  text-align: center;
+  background: var(--ifm-background-surface-color);
+}
+.communityCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.communityCard p {
+  margin-bottom: 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
+}
+.qrWindow {
+  display: block;
+  position: relative;
+  width: min(100%, 260px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #fff;
+}
+.qrWindow img {
+  position: absolute;
+  width: var(--qr-width);
+  max-width: none;
+  height: auto;
+  left: var(--qr-left);
+  top: var(--qr-top);
+}
+.qrWindow:focus-visible {
+  outline: 3px solid var(--ifm-color-primary);
+  outline-offset: 4px;
+}
+.qrHint, .qrNote {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.8rem;
+}
 @media (max-width: 996px) {
   .photos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .communityGrid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin: 0 auto;
   }
 }
 @media (max-width: 600px) {
