@@ -6,8 +6,6 @@ sidebar_label: 打印外壳
 
 ## 1. 当前模型包
 
-本 Wiki 统一使用 **2026-11-13 模型包**：8 个 STL（外壳、无手臂底座、左右卡销、左右腿、左右脚）及 1 个 3MF 参考工程。<a href="/downloads/models/2026-11-13/nailong-models-20261113.zip" download="nailong-models-20261113.zip">下载完整模型包（ZIP，10.46 MB）</a>，也可在 [打印外壳](/docs/assembly/print) 按零件下载。文件由本站直接提供，无需网盘。
-
 原始压缩包名为 `02_STL_单件落地(1).zip`，站内下载使用简短英文文件名；压缩包内容和所有模型文件均保持原始字节不变。旧版外壳、MakerWorld 原版结构件和历史预览不再作为本教程的打印下载方案。
 
 <figure>

@@ -55,8 +55,6 @@ sidebar_label: 物料与工具
 
 ## 3. 打印件
 
-本 Wiki 统一使用 **2026-11-13 模型包**：8 个 STL（外壳、无手臂底座、左右卡销、左右腿、左右脚）及 1 个 3MF 参考工程。<a href="/downloads/models/2026-11-13/nailong-models-20261113.zip" download="nailong-models-20261113.zip">下载完整模型包（ZIP，10.46 MB）</a>，也可在 [打印外壳](/docs/assembly/print) 按零件下载。文件由本站直接提供，无需网盘。
-
 <div className="purchase-table" role="region" aria-label="打印件与购买链接，可横向滚动" tabIndex={0}>
 
 | 零件 | 数量 | 本站模型下载 | 购买链接 |

@@ -6,13 +6,11 @@ sidebar_label: 组装
 
 ## 1. 简介
 
-本 Wiki 统一使用 **2026-11-13 模型包**：8 个 STL（外壳、无手臂底座、左右卡销、左右腿、左右脚）及 1 个 3MF 参考工程。<a href="/downloads/models/2026-11-13/nailong-models-20261113.zip" download="nailong-models-20261113.zip">下载完整模型包（ZIP，10.46 MB）</a>，也可在 [打印外壳](/docs/assembly/print) 按零件下载。文件由本站直接提供，无需网盘。
-
 这一章把一堆零件变成一只能站起来的奶龙。用官方套件大约 **40 分钟**；从焊板开始自己做大约 **2～3 小时**。
 
 <figure>
   <img src="/img/photos/model-viewer.jpg" alt="手机上的「奶龙·结构观察室」页面：标题是把奶龙，装起来，副标题写着按实物照片装配、黄色外壳、白色双腿、四个关节，中间是黄色奶龙外壳和白色腿脚的三维模型" />
-  <figcaption>历史结构预览图，仅作外观参考；打印文件请使用本页当前模型包</figcaption>
+  <figcaption>历史结构预览图，仅作外观参考；打印文件见「打印外壳」页面</figcaption>
 </figure>
 
 <figure>
@@ -35,8 +33,6 @@ sidebar_label: 组装
 :::
 
 ## 2. 视频教程
-
-B 站 [AI 机器人组装教程（鹿小班电子科技）](https://www.bilibili.com/video/BV1zuNyzXEWa) 是同款 Otto 的完整装配视频，共 37 分钟，可以对照着看：
 
 | 分 P | 内容 | 时长 | 对应本章 |
 |---|---|---|---|
