@@ -35,12 +35,3 @@ sidebar_label: 规格参数
 | 后台 | xiaozhi.me | xiaozhi.me，或本地 Otto Master |
 
 两种固件的区别见 [功能状态](/docs/intro/status)。
-
-## 3. 成本
-
-| 方案 | 大约费用 |
-|---|---|
-| 自己买料、自己焊板、自己打印 | ¥200～500，看器件渠道和质量 |
-| 买 DIY 套件，按 [当前模型清单](/docs/assembly/print) 补齐缺少的打印件 | 以店铺包含的零件及报价为准 |
-
-物料明细见 [组装 · 物料与工具](/docs/assembly/prepare)。
