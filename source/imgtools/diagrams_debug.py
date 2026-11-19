@@ -15,7 +15,7 @@ for i, (k, v) in enumerate(row1):
         s.arrow(30 + i * 220 - 50, 102, 30 + i * 220, 102)
 s.text(310, 160, "没配过网才会进", size=12, color=C["gray"])
 s.text(530, 160, "没绑定过才会停在这里", size=12, color=C["gray"])
-row2 = [("connecting", "连接服务器"), ("listening", "听你说"), ("speaking", "说话 / 做动作")]
+row2 = [("connecting", "连接服务器"), ("listening", "听你说"), ("speaking", "播放语音回答")]
 for i, (k, v) in enumerate(row2):
     s.box(140 + i * 240, 220, 180, 64, k, v, "blue", size=15)
     if i:
@@ -23,7 +23,7 @@ for i, (k, v) in enumerate(row2):
 s.arrow(745, 134, 230, 220)
 s.text(600, 198, "唤醒词 / 按 BOOT", size=12, color=C["gray"])
 s.arrow(620, 284, 230, 284, None, dash=True)
-s.text(425, 306, "说完自动回到 listening；没人说话或再按一次 BOOT 回到 idle", size=12, color=C["gray"])
+s.text(425, 306, "会话依模式切换；最新候选 BOOT 打断后继续 listening，仍待实测", size=12, color=C["gray"])
 s.save(os.path.join(OUT, "states.svg"))
 
 # 2. 配网

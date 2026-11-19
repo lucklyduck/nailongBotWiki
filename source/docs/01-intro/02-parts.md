@@ -29,7 +29,7 @@ sidebar_label: 部件与引脚
 
 ## 2. 引脚分配
 
-下面的引脚是奶龙固件 `main/boards/otto-robot/config.h` 里的定义，官方 Otto 固件相同。
+下面按 NaiFirmware 的非摄像头配置与 `nailong_config.h` 奶龙变体列出引脚；其他官方板型或摄像头版本不能直接套用。
 
 <figure>
   <img className="board-svg" src="/img/intro/pinout.svg" alt="ESP32-S3 引脚分配图：左腿舵机 GPIO17、左脚舵机 GPIO18、右腿舵机 GPIO39、右脚舵机 GPIO38、BOOT 键 GPIO0、充电检测 GPIO21、电池电压 ADC2 通道 3；麦克风 WS SCK DIN 为 GPIO 4 5 6，功放 DOUT BCLK LRCK 为 GPIO 7 15 16，屏幕 MOSI CLK 为 10 9，DC RST CS 为 46 11 12，背光为 3" />
@@ -40,11 +40,11 @@ sidebar_label: 部件与引脚
 
 | 舵机 | GPIO | 代码里的名字 |
 |---|---|---|
-| 左腿 | 17 | `LEFT_LEG_PIN` |
-| 左脚 | 18 | `LEFT_FOOT_PIN` |
-| 右腿 | 39 | `RIGHT_LEG_PIN` |
-| 右脚 | 38 | `RIGHT_FOOT_PIN` |
-| 左手 / 右手 | -1 | 不使用，固件不会注册手部动作 |
+| 左腿 | 17 | `left_leg_pin` |
+| 左脚 | 18 | `left_foot_pin` |
+| 右腿 | 39 | `right_leg_pin` |
+| 右脚 | 38 | `right_foot_pin` |
+| 左手 / 右手 | -1 | 奶龙变体不连接手臂，手部动作请求会被拒绝 |
 
 主板上有三组 2×3 舵机排针（HDR1、HDR3、HDR4），每组接两个舵机。每个舵机的三根线从信号到地依次是 **信号 / 电源（电池直供）/ GND**，所以插的时候**棕色线（GND）朝外**。
 
@@ -75,7 +75,7 @@ sidebar_label: 部件与引脚
 | DC / RST / CS | 46 / 11 / 12 |
 | 背光 | 3 |
 
-ST7789，240×240，SPI mode 3，需要颜色反转（`DISPLAY_INVERT_COLOR true`）。
+ST7789，240×240，SPI mode 3，需要颜色反转。
 
 ### 2.4 电源和按键
 
@@ -86,7 +86,7 @@ ST7789，240×240，SPI mode 3，需要颜色反转（`DISPLAY_INVERT_COLOR true
 | 电池电压 | ADC2 通道 3 |
 
 :::info 待补充
-立创原理图上标的是 CHG_DET = IO47、BAT_DET = IO21，和固件 `config.h` 不一致。本页以实际在跑的固件为准，原理图版本差异待确认。
+立创原理图上标的是 CHG_DET = IO47、BAT_DET = IO21，和固件 `config.h` 不一致。本页列出当前固件配置，不能代替实物线路核对，原理图版本差异待确认。
 :::
 
 ## 3. 主板

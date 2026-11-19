@@ -29,6 +29,8 @@ sidebar_label: 产品介绍
   <figcaption>奶龙的「原型」：Otto 原版小智 AI 机器人，方脑袋、带手臂（来源：MakerWorld ottoRobot 小智 AI）</figcaption>
 </figure>
 
+当前固件教程采用 **NaiFirmware**（基础版本 2.4.2），使用彩色场景图和 5 秒本地笑声。照片与视频记录历史样机，具体实现及候选功能见 [功能状态](/docs/intro/status)。
+
 ## 2. 它能做什么
 
 - 说「**你好奶龙**」唤醒，或者按一下机身按键，然后直接用中文聊天。

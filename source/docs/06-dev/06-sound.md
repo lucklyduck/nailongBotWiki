@@ -6,39 +6,40 @@ sidebar_label: 更换音效
 
 ## 1. 简介
 
-奶龙的本地音效（不经过云端、机器人自己播放的声音）都在 `main/assets/common/` 下：
+奶龙的笑声是 `main/boards/otto-robot/nailong_assets/nl_laugh.ogg`，约 5 秒，Ogg Opus、单声道、16 kHz、60 ms 帧。系统提示音仍在 `main/assets/common/`。
 
-| 文件 | 什么时候播放 |
-|---|---|
-| `nailong_laugh.ogg` | `self.otto.laugh`，奶龙大笑，约 2 秒 |
-| `action_walk.ogg` | 走路 |
-| `action_turn_jump.ogg` | 转身、跳 |
-| `action_swing.ogg` | 摇摆 |
-| `action_bend_shake_leg.ogg` | 弯腰、抖腿 |
-| `action_other.ogg` | 其他动作 |
-| `success.ogg` `popup.ogg` `exclamation.ogg` `vibration.ogg` `low_battery.ogg` | 系统提示音 |
+当前没有旧教程所述“每种动作自动配一段音效”的映射。
 
-编译时，这个目录里所有 `.ogg` 都会被打包进固件，并自动生成 `Lang::Sounds::OGG_文件名大写` 这样的常量供代码使用（例如 `nailong_laugh.ogg` → `OGG_NAILONG_LAUGH`）。
+## 2. 准备笑声
 
-## 2. 换掉奶龙大笑
+`Materials/` 中保留九张图片和 **一份**原始 OGG。在 `xiaozhi-esp32/` 下执行：
 
-1. 准备新音频，建议 2 秒左右。
-2. 转成 **Opus 编码的 OGG**、单声道、16 kHz。用 ffmpeg：
+~~~bash
+python scripts/prepare_nailong_materials.py --ffmpeg ffmpeg --laugh-seconds 5
+python scripts/build_nailong.py
+~~~
 
-   ```bash
-   ffmpeg -i my_laugh.mp3 -c:a libopus -ac 1 -ar 16000 -b:a 24k -frame_duration 60 nailong_laugh.ogg
-   ```
+脚本截取前 5 秒、转换编码，更新素材清单并保留原文件。已有定制资源时可直接构建；重新转换需要可用的 ffmpeg。
 
-   `-frame_duration 60` 让每个 Opus 包约 60 ms，和原文件一致。仓库里的 `scripts/mp3_to_ogg.sh` 和 `scripts/ogg_converter` 也可以用。
-3. 覆盖 `main/assets/common/nailong_laugh.ogg`。
-4. 编译烧录，说「笑一个」验证。
+## 3. 播放怎么控制
 
-## 3. 加一个新音效
+`nailong_actions.cc` 注册 `self.otto.laugh`：
 
-1. 把 `meow.ogg` 放进 `main/assets/common/`。
-2. 重新编译一次，生成常量 `Lang::Sounds::OGG_MEOW`（以 `build` 里生成的 `lang_config.h` 为准）。
-3. 参考 `self.otto.laugh` 的写法，在 `otto_controller.cc` 里注册一个工具，调用 `QueueSound(Lang::Sounds::OGG_MEOW, ...)` 播放。
+1. 有界队列接收请求，忙时拒绝重复调用。
+2. 等已有音频排空，再安排本地播放和大笑图。
+3. 按播放代次检查中断，过期音频不再补入。
+4. 音频完成或中断后返回工具结果。
 
-:::warning
-音效会占用固件空间。几秒钟的 Opus 音效只有几 KB，但不要放几十秒的音乐进去。
-:::
+不要让工具在等待云端退出 Speaking 后才开始：云端可能正在等待工具返回，这样会互相等待。
+
+## 4. 边笑边走
+
+使用 `self.otto.laugh_walk`，一次请求启动笑声和步态，两项结束后才完成。分别调用 `laugh` 和 `action` 可能被云端串行执行，变成先笑后走。
+
+完整机械与音频重叠效果仍待实测，见 [功能状态](/docs/intro/status)。
+
+## 5. 验证
+
+更新配套资源后，说“笑一个”，检查工具日志、约 5 秒声音、大笑图和结束后的场景恢复。再测试打断、连续调用和重新对话。
+
+只替换音频文件还不算完成，必须重新准备资源、构建、烧录并听实际输出。

@@ -19,9 +19,9 @@
 
 奶龙机器人实战课围绕一台基于 **ESP32-S3 与小智 AI Otto** 的桌面机器人展开。你可以跟着教程认识零部件、打印外壳、完成组装，再进行固件烧录、配网、舵机校准和语音交互配置。有开发基础的同学，还可以继续添加动作、修改表情和唤醒词，尝试通过 MCP 让大模型调用机器人的功能。
 
-课程记录的实物作品由 **知造 ZhiForge（catnipent）** 团队在 2026 知乎黑客松 · 校园新锐季制作。团队在 Otto 双足机器人的基础上加入奶龙 / 看山造型外壳，并在定制固件中加入“你好奶龙”唤醒词、看山表情和奶龙大笑等功能。
+课程记录的实物作品由 **知造 ZhiForge（catnipent）** 团队在 2026 知乎黑客松 · 校园新锐季制作。团队在 Otto 双足机器人的基础上加入奶龙 / 看山造型外壳，当前教程采用 NaiFirmware（基础版本 2.4.2），介绍“你好奶龙”唤醒、彩色场景图、本地 5 秒笑声和动作开发；历史样机与当前源码的功能以教程说明为准。
 
-本仓库提供课程文档、网站源码、图片和演示视频，以及完整结构件模型（8 个 STL 与 1 个 3MF 参考工程）。课程目前有 **8 个章节、45 篇文档**，你可以按学习路线完成一台机器人，也可以按问题查阅组装、烧录和调试页面。
+本仓库提供课程文档、网站源码、图片和演示视频，以及完整结构件模型（8 个 STL 与 1 个 3MF 参考工程）。课程目前有 **9 个章节、48 篇文档**，你可以按学习路线完成一台机器人，也可以按问题查阅组装、烧录和调试页面。
 
 ### 适合谁学习
 
@@ -89,11 +89,12 @@
 | 第一章 · 产品介绍 | 项目背景、规格、部件与引脚、功能状态、学习路线 | [阅读](https://nailong.nekokax.com/docs/intro) | [5 篇](source/docs/01-intro/) |
 | 第二章 · 组装 | 物料、外壳打印、焊接、舵机归中、腿脚和主板装配、自检 | [阅读](https://nailong.nekokax.com/docs/assembly) | [8 篇](source/docs/02-assembly/) |
 | 第三章 · 烧录 | 在线烧录、工具烧录、源码编译、固件合并 | [阅读](https://nailong.nekokax.com/docs/flash) | [5 篇](source/docs/03-flash/) |
-| 第四章 · 调试 | 串口日志、配网、舵机校准、声音与 Otto Master | [阅读](https://nailong.nekokax.com/docs/debug) | [6 篇](source/docs/04-debug/) |
+| 第四章 · 调试 | 串口日志、配网、舵机校准、唤醒、笑声与按键 | [阅读](https://nailong.nekokax.com/docs/debug) | [5 篇](source/docs/04-debug/) |
 | 第五章 · xiaozhi 后台 | 登录、绑定设备、人设与音色、MCP 接入 | [阅读](https://nailong.nekokax.com/docs/xiaozhi) | [5 篇](source/docs/05-xiaozhi/) |
 | 第六章 · 二次开发 | 固件结构、动作、MCP 工具、唤醒词、表情、音效、服务端与原理 | [阅读](https://nailong.nekokax.com/docs/dev) | [11 篇](source/docs/06-dev/) |
 | 第七章 · FAQ | 项目、组装、烧录、网络与使用中的常见问题 | [阅读](https://nailong.nekokax.com/docs/faq) | [1 篇](source/docs/07-faq/) |
 | 第八章 · 下载与分享 | 固件和工具入口、更新日志、联系与作品分享 | [阅读](https://nailong.nekokax.com/docs/download) | [4 篇](source/docs/08-download/) |
+| 第九章 · IDE 入门 | Catnip Forge 编译、烧录、串口与改代码两个示例 | [阅读](https://nailong.nekokax.com/docs/ide) | [4 篇](source/docs/09-ide/) |
 
 ### 按 Task 0—5 开始实践
 
@@ -112,7 +113,7 @@
 
 ### 已提供
 
-- 8 章课程文档，以及配套图片、示意图和演示视频。
+- 9 章课程文档，以及配套图片、示意图和演示视频。
 - 完整模型包（2026-11-13）：[本站 ZIP 下载](https://nailong.nekokax.com/downloads/models/2026-11-13/nailong-models-20261113.zip) · [单件清单与打印说明](https://nailong.nekokax.com/docs/assembly/print) · [仓库文件](source/static/downloads/models/2026-11-13/)。8 个 STL 各打印 1 件；3MF 仅含外壳、底座与左右卡销四个对象，不应重复打印。
 - [在线 Wiki](https://nailong.nekokax.com/)，支持目录导航和站内搜索。
 - 基于 Docusaurus 的网站源码与当前发布文件，支持本地预览和修改。
@@ -120,7 +121,7 @@
 ### 后续完善方向
 
 - 根据学习者反馈补充装配照片、操作说明与故障排查案例。
-- 补齐下载页中尚未提供的奶龙定制固件合并镜像及校验信息。
+- 补齐公司 GitHub 仓库、IDE 发布包与奶龙公开固件下载；公开构建需排除个人身份配置并完成实机验收。
 - 收集不同配色、动作和交互方案，整理可复现的二次开发案例。
 
 课程部分页面仍有待核实或待补充内容，阅读时请以对应页面的说明为准。欢迎在 Issue 中提供实测记录、环境信息和修正建议。
@@ -149,7 +150,7 @@ npm run serve
 nailongBotWiki/
 ├── README.md                  # 项目与课程入口
 ├── source/
-│   ├── docs/                  # 八章课程正文
+│   ├── docs/                  # 九章课程正文
 │   ├── src/                   # 首页、组件和样式
 │   ├── static/                # 图片、视频、STL 等资源
 │   ├── docusaurus.config.js   # 导航、页脚、站点地址等配置
@@ -185,3 +186,9 @@ nailongBotWiki/
 第三方图片与资料的出处见对应页面图注和[资料整理](source/sources.md)。本仓库目前未设置独立的项目许可证；上游固件、PCB 与第三方素材的许可说明请查阅各自项目。
 
 感谢提供问题反馈、实测记录和内容修正的参与者。
+
+## 当前固件与 IDE 教程
+
+固件正文以 NaiFirmware 为准，基础版本、候选修订与实测边界见[功能状态](source/docs/01-intro/03-status.md)。构建使用 `python scripts/build_nailong.py`，不传个人身份文件。公司 GitHub 地址尚待补充，暂不发布个人设备升级包。
+
+[Catnip Forge IDE 入门](source/docs/09-ide/index.md)沿用全站排版，使用 ESP32-S3 Hello World 验证编译、烧录和串口，再改一句输出。示例工程成功不等于已经适配奶龙工程。

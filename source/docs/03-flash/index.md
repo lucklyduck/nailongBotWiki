@@ -10,8 +10,8 @@ sidebar_label: 烧录
 
 | | 官方 Otto 固件 | 奶龙定制固件 |
 |---|---|---|
-| 适合 | 只想让机器人先跑起来 | 想要「你好奶龙」、看山表情、奶龙大笑，或者准备改代码 |
-| 来源 | [ottodiy.tech 下载页](https://ottodiy.tech/docs/downloads/) | 奶龙源码仓库 `howtion0/otto` |
+| 适合 | 只想让机器人先跑起来 | 想要「你好奶龙」、彩色场景图、奶龙大笑，或者准备改代码 |
+| 来源 | [ottodiy.tech 下载页](https://ottodiy.tech/docs/downloads/) | NaiFirmware，公司仓库地址待补充 |
 | 唤醒词 | 你好小智 | 你好奶龙 |
 | 要装开发环境吗 | 不用 | 要，ESP-IDF v5.5.5 |
 | 第一次大约用时 | 5 分钟 | 30～40 分钟（下载工具链和组件） |
@@ -25,7 +25,7 @@ sidebar_label: 烧录
 |---|---|
 | [网页在线烧录](/docs/flash/online) | 官方固件，浏览器里点一下 |
 | [用工具烧录](/docs/flash/tool) | 官方固件或合并镜像，esptool / Flash Download Tool |
-| [编译奶龙固件](/docs/flash/build) | 装 ESP-IDF、编译、`idf.py flash` |
+| [编译奶龙固件](/docs/flash/build) | ESP-IDF v5.5.5、专用脚本、配套应用和资源 |
 | [导出合并镜像](/docs/flash/merge) | 把奶龙固件打成一个 .bin 发给别人 |
 
 ## 2. 烧录前检查

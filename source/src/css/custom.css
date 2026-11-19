@@ -56,6 +56,18 @@
   display: table;
   width: 100%;
 }
+/* 窄屏下长工具名和工程名保持表格内滚动，不撑宽整页。 */
+@media (max-width: 996px) {
+  .markdown table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .markdown th,
+  .markdown td {
+    min-width: 6rem;
+  }
+}
 .purchase-table {
   max-width: 100%;
   overflow-x: auto;

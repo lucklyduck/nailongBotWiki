@@ -7,18 +7,18 @@ OUT = os.path.join(os.path.dirname(__file__), "..", "static", "img", "dev")
 
 # 1. idf.py build 背后
 s = Svg(900, 400)
-s.text(450, 34, "一条 idf.py build 背后做了什么", size=20, weight=700)
-steps = [("idf.py build", "Python 前端\n只负责调度", "yellow"),
+s.text(450, 34, "奶龙专用构建脚本背后做了什么", size=20, weight=700)
+steps = [("build_nailong.py", "选奶龙变体与配置\n调度 ESP-IDF", "yellow"),
          ("CMake 配置", "读 CMakeLists.txt\n合并 sdkconfig\n找齐所有组件", "blue"),
-         ("生成 build.ninja", "奶龙工程约\n5600 条构建规则", "blue"),
-         ("Ninja 并行编译", "约 2100 个源文件\n每个组件一个 .a", "green"),
+         ("生成 build.ninja", "根据当前配置\n生成构建规则", "blue"),
+         ("Ninja 并行编译", "编译实际选中的文件\n输出组件库", "green"),
          ("链接 + 打包", "xiaozhi.bin\ngenerated_assets.bin", "orange")]
 for i, (t, sub, c) in enumerate(steps):
     x = 20 + i * 176
     s.box(x, 80, 150, 130, t, sub, c, size=15)
     if i:
         s.arrow(x - 26, 145, x, 145)
-s.box(170, 260, 250, 76, "输入", "CMakeLists.txt · sdkconfig.defaults.otto\nidf_component.yml（48 个托管组件）", "gray", size=14)
+s.box(170, 260, 250, 76, "输入", "板型 config.json · 构建覆盖项\nidf_component.yml · dependencies.lock", "gray", size=14)
 s.box(480, 260, 250, 76, "输出 build/", "bootloader · 分区表 · xiaozhi.bin\ngenerated_assets.bin · flash_args", "gray", size=14)
 s.arrow(295, 260, 295, 214, dash=True)
 s.arrow(715, 214, 605, 260, dash=True)
@@ -28,19 +28,19 @@ s.save(os.path.join(OUT, "build-pipeline.svg"))
 # 2. 任务图
 s = Svg(900, 520)
 s.text(450, 34, "奶龙固件里的主要 FreeRTOS 任务", size=20, weight=700)
-s.text(450, 58, "括号里是优先级，数字越大越优先；ESP32-S3 两个核都在跑任务", size=13, color=C["gray"])
+s.text(450, 58, "事件、队列和完成回调负责协调；具体优先级以当前源码为准", size=13, color=C["gray"])
 tasks = [
-    (40, 90, "audio_input (8)", "读麦克风 · 唤醒词 · VAD\n固定在 0 号核", "red"),
-    (40, 220, "opus_codec (2)", "Opus 编码 / 解码\n栈 26 KB，最大的一个", "orange"),
-    (40, 350, "audio_output (4)", "解码后的声音\n送给功放", "red"),
-    (620, 90, "main_event_loop (3)", "等事件组 · 管状态机\n收发网络消息", "yellow"),
-    (620, 220, "otto_action (3)", "从动作队列取动作\n插值驱动 4 个舵机", "blue"),
-    (620, 350, "otto_sound (3)", "播放动作音效\n队列长度 1", "blue"),
+    (40, 90, "音频采集", "读麦克风 · 唤醒词 · VAD\n处理识别事件", "red"),
+    (40, 220, "音频编解码", "Opus 编码 / 解码\n处理音频队列", "orange"),
+    (40, 350, "音频播放", "解码后的声音\n送给功放", "red"),
+    (620, 90, "应用主循环", "等事件组 · 管状态机\n收发网络消息", "yellow"),
+    (620, 220, "动作任务", "从动作队列取动作\n插值驱动 4 个舵机", "blue"),
+    (620, 350, "本地笑声任务", "场景图 · 播放与中断\n完成后回复工具", "blue"),
 ]
 for x, y, t, sub, c in tasks:
     s.box(x, y, 240, 90, t, sub, c, size=15)
 s.box(350, 150, 200, 70, "事件组", "SEND_AUDIO · WAKE_WORD\nVAD · SCHEDULE · CLOCK", "gray", size=14)
-s.box(350, 290, 200, 70, "队列", "action_queue（10 个）\nsound_queue（1 个）", "gray", size=14)
+s.box(350, 290, 200, 70, "队列", "动作请求队列\n笑声请求与完成回调", "gray", size=14)
 s.arrow(280, 135, 350, 175, "置位")
 s.arrow(550, 175, 620, 135, "唤醒")
 s.arrow(280, 265, 350, 195, "编码好一包")

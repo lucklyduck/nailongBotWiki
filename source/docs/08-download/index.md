@@ -4,54 +4,50 @@ title: 下载
 sidebar_label: 下载
 ---
 
-## 1. 固件
+## 1. 固件与源码
 
-| 固件 | 版本 | 下载 | 烧录方式 |
-|---|---|---|---|
-| 官方 Otto 固件 | v2.5.3（2026-10-19） | [otto2.5.3.bin](https://ottodiy.tech/assets/files/otto2.5.3-e08dbce7bc6f496588c9518c4882dc85.bin) | 地址 `0x0`，见 [用工具烧录](/docs/flash/tool)；或 [网页在线烧录](/docs/flash/online) |
-| 官方 Otto 固件 | v2.4.2（2026-08-27） | [otto2.4.2.bin](https://ottodiy.tech/assets/files/otto2.4.2-d709600f2ecfe2f66706467ec9c6a86b.bin) | 同上 |
-| 奶龙定制固件 | 2.0.16 | 源码编译，见 [编译奶龙固件](/docs/flash/build) | `idf.py flash` |
-
-更多历史版本见 [ottodiy.tech 下载页](https://ottodiy.tech/docs/downloads/)。
-
-:::info 待补充
-奶龙固件 2.0.16 的合并镜像（`nailong-2.0.16-merged.bin`）和 md5。
-:::
-
-## 2. 源码
-
-| 名称 | 地址 | 说明 |
+| 内容 | 获取方式 | 说明 |
 |---|---|---|
-| 奶龙固件 | `howtion0/otto`（是否公开待确认） | 基于小智，ESP-IDF v5.5.5 |
-| 小智 AI | [78/xiaozhi-esp32](https://github.com/78/xiaozhi-esp32) | 上游 |
-| Otto 小智版 | [txp666/xiaozhi-esp32](https://github.com/txp666/xiaozhi-esp32) | 官方 Otto 固件源码 |
-| MCP 示例 | [78/mcp-calculator](https://github.com/78/mcp-calculator) | 云端 MCP 计算器 |
+| NaiFirmware 源码 | 公司 GitHub 地址待补充 | 基于小智 / Otto 2.4.2，ESP-IDF v5.5.5 |
+| 奶龙公开固件 | 待发布 | 还没有经过公开版发布验收的下载包 |
+| 本地构建 | [编译奶龙固件](/docs/flash/build) | 使用 `build_nailong.py`，不传个人身份文件 |
+| 固件导出 | [导出合并镜像](/docs/flash/merge) | 区分完整安装与保留配置升级 |
+| 配套 server | 公司 GitHub 地址待补充 | 独立项目，接入实测待补 |
+| Catnip Forge IDE | 公司 GitHub / 发布包地址待补充 | [使用教程](/docs/ide) |
 
-## 3. 硬件
+不要把个人设备升级包、Flash / NVS 备份当成公开下载包。奶龙各修订的验证范围见 [功能状态](/docs/intro/status)。
 
-| 名称 | 地址 |
+## 2. 官方与上游资料
+
+| 内容 | 地址 |
 |---|---|
-| 主板（原理图、PCB、BOM） | [立创开源 ottoRobot](https://oshwhub.com/txp666/ottorobot) |
-| 完整打印模型（2026-11-13） | <a href="/downloads/models/2026-11-13/nailong-models-20261113.zip" download="nailong-models-20261113.zip">下载完整模型包（ZIP，10.46 MB）</a>；8 个 STL + 1 个 3MF 参考工程 |
-| 单件 STL 与数量 | [八件打印清单](/docs/assembly/print) |
-| 3MF 参考工程 | <a href="/downloads/models/2026-11-13/reference-project.3mf" download="reference-project.3mf">下载</a>；只含外壳、底座与左右卡销，不与 STL 重复打印 |
-| 文件校验 | <a href="/downloads/models/2026-11-13/SHA256SUMS.txt" download="SHA256SUMS.txt">SHA-256 清单</a> |
-| 零部件清单 | [ottodiy.tech/docs/bom](https://ottodiy.tech/docs/bom) |
-| 当前身体外壳 | <a href="/downloads/models/2026-11-13/01-shell.stl" download="01-shell.stl">外壳 STL</a>，原名 `01_奶蛙外壳.stl`；本包不含额外看山外壳 |
+| 官方 Otto 固件与教程 | [ottodiy.tech](https://ottodiy.tech/docs/downloads/) |
+| 保留的官方固件 v2.5.3 | [otto2.5.3.bin](https://ottodiy.tech/assets/files/otto2.5.3-e08dbce7bc6f496588c9518c4882dc85.bin)，完整镜像从 `0x0` 写入 |
+| 保留的官方固件 v2.4.2 | [otto2.4.2.bin](https://ottodiy.tech/assets/files/otto2.4.2-d709600f2ecfe2f66706467ec9c6a86b.bin)，同上 |
+| 小智 AI 上游 | [78/xiaozhi-esp32](https://github.com/78/xiaozhi-esp32) |
+| Otto 固件上游 | [txp666/xiaozhi-esp32](https://github.com/txp666/xiaozhi-esp32) |
+| server 上游 | [xinnan-tech/xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server) |
 
-## 4. 工具
+上游首页会继续更新；奶龙源码的具体版本以交付记录为准。官方固件与本教程定制固件不要混用资源。
 
-| 工具 | 系统 | 下载 |
-|---|---|---|
-| Flash Download Tool 3.9.5 | Windows | [乐鑫官网](https://www.espressif.com.cn/sites/default/files/tools/flash_download_tool_3.9.5.zip) |
-| esptool | 全平台 | `pip install esptool` |
-| ESP-IDF v5.5.5 | 全平台 | 乐鑫官方安装器 / VS Code ESP-IDF 扩展 |
+## 3. 硬件和模型
 
-## 5. 教程
-
-| 名称 | 地址 |
+| 内容 | 地址 |
 |---|---|
-| 组装视频（37 分钟，5P） | [B 站 BV1zuNyzXEWa](https://www.bilibili.com/video/BV1zuNyzXEWa) |
-| Otto 官方文档 | [ottodiy.tech](https://ottodiy.tech/docs/downloads/) |
-| Otto 聊天机器人资料（飞书） | [飞书知识库](https://gcnnjyl5fvdz.feishu.cn/wiki/GFPTwsYVSiOOwAk8KAhc9F73n5c) |
+| 主板原理图、PCB、BOM | [立创开源 ottoRobot](https://oshwhub.com/txp666/ottorobot) |
+| 完整模型包（2026-11-13） | <a href="/downloads/models/2026-11-13/nailong-models-20261113.zip" download>下载 ZIP</a>，8 个 STL + 1 个 3MF 参考工程 |
+| 单件模型与数量 | [八件打印清单](/docs/assembly/print) |
+| 3MF 参考工程 | <a href="/downloads/models/2026-11-13/reference-project.3mf" download>下载 3MF</a>，仅外壳、底座、左右卡销四个对象 |
+| 校验清单 | <a href="/downloads/models/2026-11-13/SHA256SUMS.txt" download>SHA-256</a> |
+
+3MF 不与 STL 重复打印；模型包不含额外看山外壳。
+
+## 4. 工具和教程
+
+| 内容 | 入口 |
+|---|---|
+| Catnip Forge 两个入门示例 | [IDE 入门](/docs/ide) |
+| ESP-IDF v5.5.5 | [奶龙编译环境](/docs/flash/build) |
+| esptool / Flash Download Tool | [用工具烧录](/docs/flash/tool) |
+| 组装视频 | [B 站 BV1zuNyzXEWa](https://www.bilibili.com/video/BV1zuNyzXEWa) |
 | 小智后台 | [xiaozhi.me](https://xiaozhi.me/) |

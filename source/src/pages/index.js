@@ -22,6 +22,7 @@ const entries = [
   {title: '6. 二次开发 ★', to: '/docs/dev', desc: '加动作、加 MCP 工具、换表情、换唤醒词'},
   {title: '7. FAQ', to: '/docs/faq', desc: '常见问题与排查方法'},
   {title: '8. 下载', to: '/docs/download', desc: '固件、源码、工具、晒出你的奶龙'},
+  {title: '9. IDE 入门', to: '/docs/ide', desc: 'Catnip Forge：编译、烧录、看串口，再改一句输出'},
 ];
 
 const communities = [

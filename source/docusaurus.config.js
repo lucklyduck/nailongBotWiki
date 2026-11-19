@@ -65,6 +65,7 @@ const config = {
         items: [
           {to: '/', label: '首页', position: 'left', activeBaseRegex: '^/$'},
           {to: '/docs/all-docs', label: '全部文档', position: 'left'},
+          {to: '/docs/ide', label: 'IDE 入门', position: 'left'},
           {type: 'search', position: 'right'},
         ],
       },
@@ -76,6 +77,7 @@ const config = {
             items: [
               {label: '产品介绍', to: '/docs/intro'},
               {label: '组装', to: '/docs/assembly'},
+              {label: 'IDE 入门', to: '/docs/ide'},
               {label: '全部文档', to: '/docs/all-docs'},
             ],
           },

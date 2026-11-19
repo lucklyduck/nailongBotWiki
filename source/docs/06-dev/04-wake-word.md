@@ -6,62 +6,49 @@ sidebar_label: 修改唤醒词
 
 ## 1. 简介
 
-奶龙固件用乐鑫 MultiNet 中文命令词模型做自定义唤醒词，**用拼音配置，不需要重新训练模型**。当前配置：
+奶龙使用 MultiNet 中文命令词模型，通过拼音配置唤醒词，不需要重新训练模型。当前设置在 `scripts/build_nailong.py` 的 `NAILONG_OVERRIDES` 中。
 
-| 配置项 | 值 | 作用 |
-|---|---|---|
-| `CONFIG_USE_CUSTOM_WAKE_WORD` | `y` | 启用自定义唤醒词（需要 ESP32-S3 + PSRAM） |
-| `CONFIG_CUSTOM_WAKE_WORD` | `ni hao nai long` | 唤醒词拼音，空格分隔，不带声调 |
-| `CONFIG_CUSTOM_WAKE_WORD_DISPLAY` | `你好奶龙` | 唤醒后发给后台的问候语 |
-| `CONFIG_CUSTOM_WAKE_WORD_THRESHOLD` | `20` | 灵敏度阈值 1–99，**越小越灵敏** |
-
-## 2. 修改
-
-### 方法一：menuconfig
-
-```bash
-idf.py menuconfig
-```
-
-进入 **Xiaozhi Assistant**，找到 Custom Wake Word 相关的三项，修改后按 `S` 保存、`Q` 退出。
-
-### 方法二：直接改默认配置
-
-编辑 `sdkconfig.defaults.otto`：
-
-```ini
-CONFIG_CUSTOM_WAKE_WORD="ni hao kan shan"
-CONFIG_CUSTOM_WAKE_WORD_DISPLAY="你好看山"
-```
-
-然后**删掉旧的 `sdkconfig`** 再编译，否则旧配置会覆盖默认值：
-
-```bash
-rm sdkconfig
-idf.py build
-```
-
-## 3. 烧录
-
-```bash
-idf.py -p /dev/cu.usbmodem1101 flash monitor
-```
-
-唤醒词模型和索引在 `generated_assets.bin` 里，必须用完整的 `idf.py flash`。
-
-## 4. 怎么选唤醒词
-
-- 3～4 个字最好，太短容易误唤醒，太长不好识别。
-- 避开日常高频词，「你好」开头的组合比较稳。
-- 避开发音相近的字，「奶龙」和「来龙」容易混。
-
-调阈值：
-
-| 现象 | 调整 |
+| 配置 | 当前值 |
 |---|---|
-| 叫好几次才醒 | 阈值调小，例如 20 → 15 |
-| 没叫也自己醒 | 阈值调大，例如 20 → 30 |
+| `CONFIG_USE_CUSTOM_WAKE_WORD` | `y` |
+| `CONFIG_CUSTOM_WAKE_WORD` | `ni hao nai long` |
+| `CONFIG_CUSTOM_WAKE_WORD_DISPLAY` | 你好奶龙 |
+| `CONFIG_CUSTOM_WAKE_WORD_THRESHOLD` | 10 |
+| 模型 | 中文 MultiNet7 |
 
-:::info 待补充
-「你好奶龙」的实测识别率和误唤醒率。
-:::
+## 2. 修改并构建
+
+例如改为“你好看山”，编辑构建脚本中的对应项：
+
+~~~python
+'CONFIG_CUSTOM_WAKE_WORD="ni hao kan shan"',
+'CONFIG_CUSTOM_WAKE_WORD_DISPLAY="你好看山"',
+"CONFIG_CUSTOM_WAKE_WORD_THRESHOLD=10",
+~~~
+
+保持列表中其他配置和语法完整，然后执行：
+
+~~~bash
+python scripts/build_nailong.py
+idf.py -p COM5 flash monitor
+~~~
+
+专用脚本会再次生成配置，单独修改 `menuconfig` 可能被脚本覆盖。不要照旧教程寻找 `sdkconfig.defaults.otto`。
+
+## 3. 必须更新资源
+
+模型和实际阈值从 `generated_assets.bin` 的索引读取。只更新应用可能仍使用旧词组和旧阈值，升级包要同时更新应用与资源。
+
+**会看到什么**：日志中显示新的拼音和阈值；当前阈值 10 对应运行值 `0.1`。
+
+## 4. 调节灵敏度
+
+| 现象 | 调整方向 |
+|---|---|
+| 漏唤醒 | 可尝试减小阈值，同时记录误唤醒 |
+| 误唤醒 | 增大阈值，例如 10 → 20 |
+| 对话文字把“奶龙”听成别的词 | 这是云端听写问题，和待机唤醒模型分开排查 |
+
+阈值越小越敏感，不代表越好。固定距离、音量和环境，分别记录唤醒成功与误触发次数，再决定取值。
+
+本地“停下”有独立配置 `CONFIG_LOCAL_STOP_COMMAND_THRESHOLD`，不要与唤醒阈值混用。当前两项都是 10%，停止功能仍属待实测候选。

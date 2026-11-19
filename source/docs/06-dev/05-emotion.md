@@ -6,37 +6,45 @@ sidebar_label: 更换表情
 
 ## 1. 简介
 
-奶龙固件把圆屏中间的表情换成了 240×240 的单色「看山」贴图，分两类：
+NaiFirmware 使用 **9 张 240×240 彩色场景图**，格式为 RGB565 小端原始数据。正常对话按场景选图，不按云端的 21 个情绪名称逐一换图。
 
-| 类型 | 数量 | 什么时候显示 |
+| 场景 | 原始素材 | 资源文件 |
 |---|---|---|
-| 对话表情 | 21 个 | 后台根据对话情绪发来表情名时切换 |
-| 动作贴图 | 22 个 | 本地动作开始时临时显示，结束或 stop 后恢复对话表情 |
+| 待机 / 听取 / 等待 | `Materials/9.raw` | `nl_idle.raw` |
+| 本地大笑 | `Materials/2.raw` | `nl_laugh.raw` |
+| 语音回答 | `1、3、4、5、6、7、8.raw` | `nl_reply1.raw` 至 `nl_reply7.raw` |
 
-21 个对话表情名和小智协议一致，**名字不能改**，只能换图：
+每次回答选一张，避免相邻重复；大笑图优先，实际播放结束后恢复。字幕、网络和电量仍由界面显示。
 
-```text
-neutral happy laughing funny sad angry crying loving embarrassed surprised shocked
-thinking winking cool relaxed delicious kissy confident sleepy silly confused
-```
+## 2. 改哪个文件
 
-未知的表情名会显示 `neutral`。屏幕上方的状态栏和下方的字幕位置、样式都没有改。
+| 文件 | 作用 |
+|---|---|
+| `nailong_display.cc` | 加载图片、刷新显示 |
+| `nailong_scene_state.h` | 选择当前场景 |
+| `nailong_assets/` | 构建使用的资源 |
+| `scripts/prepare_nailong_materials.py` | 从原始素材准备图片和笑声 |
 
-## 2. 图片数据在哪
-
-`main/boards/otto-robot/kanshan_emotions.c` 里每张图是一个 LVGL 图片结构体，例如 `emotion_neutral`、`action_walk`，数据是 **I1 格式**（每像素 1 位，黑白）的字节数组。原始 PNG 不在仓库里，仓库只保存转换好的数据。
+前三项位于 `main/boards/otto-robot/` 下。每张 RAW 应为 **115,200 字节**，不是把 PNG 改后缀得到的文件。
 
 ## 3. 换一张图
 
-1. 准备一张 **240×240** 的 PNG，黑白两色，背景透明或纯黑。
-2. 用 LVGL 官方的图片转换工具（或仓库 `scripts/Image_Converter`）转成 C 数组：颜色格式选 **I1**，输出 C 文件。
-3. 打开 `kanshan_emotions.c`，找到对应名字的数组（例如 `emotion_happy_data`），把字节数组替换成新生成的数据，**数组长度和结构体里的宽高、数据大小也要一起更新**。
-4. 编译烧录，对奶龙说点开心的话，看表情是否切换。
+1. 准备尺寸、像素格式和字节序一致的 RAW，替换 `Materials/` 中对应文件。
+2. 原始素材目录还需保留一份笑声 OGG；转换脚本会一起处理音频。
+3. 在源码目录执行：
 
-:::tip
-想换成彩色表情的话，颜色格式改为 RGB565，但每张图会从约 7 KB 变成约 112 KB，43 张图放不进固件，需要减少数量或改成从资源分区加载。
-:::
+~~~bash
+python scripts/prepare_nailong_materials.py --ffmpeg ffmpeg --laugh-seconds 5
+python scripts/build_nailong.py
+~~~
 
-:::info 待补充
-看山贴图的原始素材和批量转换脚本。目前素材不在仓库里，批量替换需要作者提供。
-:::
+4. 构建成功后更新应用和资源，检查待机、连续回答、大笑、字幕与电量图标。
+
+## 4. 常见问题
+
+| 现象 | 检查 |
+|---|---|
+| 颜色或图案不对 | 尺寸、RGB565 小端格式、资源是否更新 |
+| 连续回答始终一张图 | 是否真的进入了新回答，资源文件是否齐全 |
+| 笑声结束了还显示大笑图 | 音频是否实际排空，查看场景与播放日志 |
+| 想按 happy / sad 分别显示 | 需要扩展场景逻辑，当前不是逐情绪贴图方案 |

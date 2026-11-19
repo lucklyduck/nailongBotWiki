@@ -44,4 +44,5 @@ class Svg:
                 '<marker id="arrs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto">'
                 f'<path d="M10,0 L0,5 L10,10 z" fill="{C["line"]}"/></marker></defs>'
                 f'<rect width="{self.w}" height="{self.h}" fill="#ffffff"/>')
-        open(path, "w").write(head + "".join(self.items) + "</svg>")
+        with open(path, "w", encoding="utf-8") as output:
+            output.write(head + "".join(self.items) + "</svg>")

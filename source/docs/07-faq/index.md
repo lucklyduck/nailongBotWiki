@@ -10,11 +10,11 @@ sidebar_label: FAQ
 
 ### 1.1 奶龙机器人和 Otto 是什么关系？
 
-奶龙机器人就是一台 [小智 AI Otto](https://oshwhub.com/txp666/ottorobot)：电路、腿脚结构、固件框架都来自 Otto 开源项目。ZhiForge 换了奶龙 / 看山造型的身体外壳，并在固件里加了「你好奶龙」唤醒词、看山表情和奶龙大笑。
+奶龙机器人就是一台 [小智 AI Otto](https://oshwhub.com/txp666/ottorobot)：电路、腿脚结构、固件框架都来自 Otto 开源项目。ZhiForge 换了奶龙 / 看山造型的身体外壳，当前教程采用 NaiFirmware，加入「你好奶龙」唤醒词、彩色场景图和本地 5 秒笑声。历史样机照片不代表当前固件的全部功能。
 
 ### 1.2 为什么有两种固件？
 
-官方 Otto 固件一键就能烧，适合先跑起来；奶龙固件是在黑客松上为奶龙定制的，需要自己编译。区别见 [功能状态](/docs/intro/status)。
+官方 Otto 固件一键就能烧，适合先跑起来；本教程的奶龙固件采用 NaiFirmware，需要配套构建应用和资源。区别见 [功能状态](/docs/intro/status)。
 
 ## 2. 组装
 

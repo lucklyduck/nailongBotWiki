@@ -6,44 +6,32 @@ sidebar_label: 二次开发
 
 ## 1. 简介
 
-奶龙固件就是一份普通的 [xiaozhi-esp32](https://github.com/78/xiaozhi-esp32) 源码，加上一个 `otto-robot` 板型目录。你想让奶龙学新动作、换表情、换声音、换唤醒词，都只需要改这个目录和几个配置文件，然后重新 [编译烧录](/docs/flash/build)。
-
-每一节都是「改哪个文件 → 怎么改 → 编译烧录 → 怎么验证」的结构，可以单独看。
+本章按 **NaiFirmware** 讲解：基于小智 / Otto 2.4.2，选择 `nailong-otto` 变体，使用 ESP-IDF v5.5.5。先跑通构建，再一次只改一件事。
 
 | 想做什么 | 页面 | 难度 |
 |---|---|---|
-| 先搞清楚代码在哪 | [源码结构](/docs/dev/source) | ★ |
-| 让大模型能调用一个新功能 | [添加 MCP 工具](/docs/dev/mcp-tool) | ★★ |
-| 写一个全新的舞步 | [添加新动作](/docs/dev/action) | ★★★ |
-| 把「你好奶龙」换成别的 | [修改唤醒词](/docs/dev/wake-word) | ★ |
-| 换屏幕上的表情 | [更换表情](/docs/dev/emotion) | ★★ |
-| 换本地音效 | [更换音效](/docs/dev/sound) | ★ |
-| 不用 xiaozhi.me，接自己的服务器 | [更换服务端](/docs/dev/server) | ★★★ |
+| 看懂文件和工具 | [源码结构](/docs/dev/source) | ★ |
+| 注册模型能调用的功能 | [添加 MCP 工具](/docs/dev/mcp-tool) | ★★ |
+| 扩展动作 | [添加新动作](/docs/dev/action) | ★★★ |
+| 修改“你好奶龙” | [修改唤醒词](/docs/dev/wake-word) | ★ |
+| 换场景图片 | [更换表情](/docs/dev/emotion) | ★★ |
+| 换本地笑声 | [更换音效](/docs/dev/sound) | ★ |
+| 接自己的语音服务器 | [更换服务端](/docs/dev/server) | ★★★ |
+| 先学编辑、编译、烧录和串口 | [Catnip Forge IDE 入门](/docs/ide) | ★ |
 
-想弄懂固件是怎么运转的，可以看这三篇原理篇：
-
-| 原理 | 页面 |
+| 想了解原理 | 页面 |
 |---|---|
-| `idf.py build` 背后的 CMake 和 Ninja | [编译系统](/docs/dev/build-system) |
-| 奶龙怎么同时听、说、动 | [FreeRTOS 多任务](/docs/dev/freertos) |
-| 奶龙和服务器怎么说话 | [通信协议：MQTT+UDP 和 WebSocket](/docs/dev/protocol) |
+| 从源码到固件 | [编译系统](/docs/dev/build-system) |
+| 声音与动作怎么配合 | [FreeRTOS 多任务](/docs/dev/freertos) |
+| 机器人怎样连接服务器 | [通信协议](/docs/dev/protocol) |
 
 ## 2. 开始之前
 
-1. 按 [编译奶龙固件](/docs/flash/build) 装好 ESP-IDF v5.5.5，能成功编译、烧录一次原版。
-2. 用 git 管理你的改动：
-
-   ```bash
-   git checkout -b my-nailong
-   ```
-
-   改坏了随时可以 `git checkout .` 回到原样。
-3. 开着 [串口日志](/docs/debug/serial) 调试，`idf.py -p 串口 flash monitor` 一条命令烧录加看日志。
+1. 按 [编译奶龙固件](/docs/flash/build) 完成一次构建和设备验证。
+2. 保存自己的修改，使用 Git 分支记录每次实验。
+3. 对照 [功能状态](/docs/intro/status)，区分已有实测与候选功能。
+4. 开着串口日志，先用小幅度、少次数验证机械动作。
 
 :::nailong
-改坏了也不怕，`git checkout .` 一下我就变回原样。大胆改，我抗摔（大概）。
-:::
-
-:::tip
-不想自己写 C++ 的话，可以试试 ZhiForge 的思路：把你想要的效果用一句话告诉 AI，让它改 `otto_controller.cc`，你负责编译、烧录、看实机效果。
+一次只改一个本领，编译、烧录、看结果，哪里出问题才好找。
 :::
