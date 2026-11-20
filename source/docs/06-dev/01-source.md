@@ -6,7 +6,7 @@ sidebar_label: 源码结构
 
 ## 1. 目录
 
-本章按 NaiFirmware 的 `xiaozhi-esp32/` 源码说明，基础版本为 2.4.2。引脚、资源、构建入口和工具接口请与这份源码配套使用。
+本章按 [NaiLongFirmware](https://github.com/cccatnipent/NaiLongFirmware) 的 `nailong-firmware/` 源码说明，基础版本为 2.4.2。引脚、资源、构建入口和工具接口请与这份源码配套使用。
 
 <figure>
   <img className="board-svg" src="/img/dev/source-map.svg" alt="NaiFirmware 源码地图：硬件配置、动作控制、场景图片、笑声任务、资源目录和专用构建脚本" />
@@ -14,7 +14,7 @@ sidebar_label: 源码结构
 </figure>
 
 ~~~text
-xiaozhi-esp32/
+nailong-firmware/
 ├── main/boards/otto-robot/
 │   ├── config.h / nailong_config.h  硬件配置，奶龙变体关闭手臂
 │   ├── config.json                 注册 nailong-otto 变体

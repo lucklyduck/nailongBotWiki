@@ -12,7 +12,7 @@ sidebar_label: 更换音效
 
 ## 2. 准备笑声
 
-`Materials/` 中保留九张图片和 **一份**原始 OGG。在 `xiaozhi-esp32/` 下执行：
+仓库根目录的 `Materials/` 中保留九张图片和 **一份**原始 OGG。在 `nailong-firmware/` 下执行：
 
 ~~~bash
 python scripts/prepare_nailong_materials.py --ffmpeg ffmpeg --laugh-seconds 5

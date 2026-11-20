@@ -6,7 +6,7 @@ sidebar_label: 更换服务端
 
 ## 1. 简介
 
-默认通过 OTA 地址获取 xiaozhi.me 的连接配置。想换模型、音色或自己部署语音服务，可以使用配套的 `xiaozhi-esp32-server`；它是独立服务端项目，不是固件的一部分。
+默认通过 OTA 地址获取 xiaozhi.me 的连接配置。想换模型、音色或自己部署语音服务，可以使用 [配套 server](https://github.com/cccatnipent/NaiLongFirmware/tree/main/xiaozhi-esp32-server)。它与固件在同一仓库，单独运行。
 
 | 想做什么 | 路线 |
 |---|---|
@@ -16,24 +16,32 @@ sidebar_label: 更换服务端
 
 ## 2. 部署服务端
 
-按正式交付的 server README 选择部署方式，配置自己的模型凭据，启动后核对 OTA 与 WebSocket 地址。
+先按仓库的 [快速开始](https://github.com/cccatnipent/NaiLongFirmware/blob/main/docs/01-快速开始.md) 部署 Python 单服务。准备独立的 Python 3.10 环境、模型权重、ffmpeg 和 libopus，生成自己的配置并填写模型凭据；详细依赖见随包 [部署说明](https://github.com/cccatnipent/NaiLongFirmware/blob/main/xiaozhi-esp32-server/docs/Deployment.md)。
 
-服务端地址必须能被机器人访问。电脑上的 `localhost` 只代表电脑自己，不能填进机器人的连接配置；局域网测试用电脑的实际 IP。
+课程默认 HTTP OTA 端口为 `8003`，语音 WebSocket 端口为 `8000`，不要与设备端的 `8080/ws` 控制接口混用。启动后，在仓库根目录检查：
 
-:::info 待补充
-公司 server 仓库地址、选定的部署步骤，以及 NaiFirmware 配合该服务端的端到端实测记录。
+~~~bash
+python scripts/probe_ota.py http://192.168.1.20:8003/xiaozhi/ota/
+~~~
+
+将示例 IP 换成电脑的实际局域网地址。服务端地址必须能被机器人访问；电脑上的 `localhost` 只代表电脑自己，不能填进机器人的连接配置。含密钥的 `data/.config.yaml` 只保留在本机。
+
+:::info 验证范围
+公开版已有配置测试和构建记录，尚未完成真实设备与 server 的 OTA、语音和 MCP 端到端验收，见 [验证记录](https://github.com/cccatnipent/NaiLongFirmware/blob/main/VALIDATION.md)。
 :::
 
 ## 3. 修改 OTA 地址
 
-1. 先用 `python scripts/build_nailong.py` 建立公开配置。
-2. 执行 `idf.py menuconfig`，在 Xiaozhi Assistant 中修改 Default OTA URL。
-3. 执行 `idf.py build`，构建成功后烧录。
-4. 核对启动日志中的 OTA 请求、下发配置和实际连接目标。
+在 `nailong-firmware/` 下执行，替换示例 IP 和串口：
 
-默认值是 `https://api.tenclass.net/xiaozhi/ota/`。自建地址以服务端实际配置为准。
+~~~bash
+python scripts/build_nailong.py --ota-url http://192.168.1.20:8003/xiaozhi/ota/
+idf.py -p COM5 flash monitor
+~~~
 
-再次运行专用构建脚本后要重新核对 `sdkconfig`，避免生成配置覆盖自己的设置。不要启用个人身份构建来配置公开设备。
+核对启动日志中的 OTA 请求、下发配置和实际连接目标。配网页曾保存过自定义 OTA 地址时，NVS 中的 `wifi/ota_url` 优先于编译默认值，需在配网页同步修改，不必整片擦除。
+
+不带 `--ota-url` 重新构建时，默认值为 `https://api.tenclass.net/xiaozhi/ota/`。要切回 xiaozhi.me，也需核对配网页保存的地址，再按云端流程绑定设备。
 
 ## 4. 逐项验证
 

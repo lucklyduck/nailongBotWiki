@@ -11,7 +11,7 @@ sidebar_label: 烧录
 | | 官方 Otto 固件 | 奶龙定制固件 |
 |---|---|---|
 | 适合 | 只想让机器人先跑起来 | 想要「你好奶龙」、彩色场景图、奶龙大笑，或者准备改代码 |
-| 来源 | [ottodiy.tech 下载页](https://ottodiy.tech/docs/downloads/) | NaiFirmware，公司仓库地址待补充 |
+| 来源 | [ottodiy.tech 下载页](https://ottodiy.tech/docs/downloads/) | [NaiLongFirmware 源码](https://github.com/cccatnipent/NaiLongFirmware) |
 | 唤醒词 | 你好小智 | 你好奶龙 |
 | 要装开发环境吗 | 不用 | 要，ESP-IDF v5.5.5 |
 | 第一次大约用时 | 5 分钟 | 30～40 分钟（下载工具链和组件） |

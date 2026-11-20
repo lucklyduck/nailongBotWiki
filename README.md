@@ -117,11 +117,12 @@
 - 完整模型包（2026-11-13）：[本站 ZIP 下载](https://nailong.nekokax.com/downloads/models/2026-11-13/nailong-models-20261113.zip) · [单件清单与打印说明](https://nailong.nekokax.com/docs/assembly/print) · [仓库文件](source/static/downloads/models/2026-11-13/)。8 个 STL 各打印 1 件；3MF 仅含外壳、底座与左右卡销四个对象，不应重复打印。
 - [在线 Wiki](https://nailong.nekokax.com/)，支持目录导航和站内搜索。
 - 基于 Docusaurus 的网站源码与当前发布文件，支持本地预览和修改。
+- [奶龙固件与 server 源码](https://github.com/cccatnipent/NaiLongFirmware)，附快速开始、配置模板和验证记录。
 
 ### 后续完善方向
 
 - 根据学习者反馈补充装配照片、操作说明与故障排查案例。
-- 补齐公司 GitHub 仓库、IDE 发布包与奶龙公开固件下载；公开构建需排除个人身份配置并完成实机验收。
+- 补齐 IDE 公开仓库与发布包、奶龙可烧录固件下载，并完成公开版实机验收。
 - 收集不同配色、动作和交互方案，整理可复现的二次开发案例。
 
 课程部分页面仍有待核实或待补充内容，阅读时请以对应页面的说明为准。欢迎在 Issue 中提供实测记录、环境信息和修正建议。
@@ -189,6 +190,6 @@ nailongBotWiki/
 
 ## 当前固件与 IDE 教程
 
-固件正文以 NaiFirmware 为准，基础版本、候选修订与实测边界见[功能状态](source/docs/01-intro/03-status.md)。构建使用 `python scripts/build_nailong.py`，不传个人身份文件。公司 GitHub 地址尚待补充，暂不发布个人设备升级包。
+固件正文以 [NaiLongFirmware 公开源码](https://github.com/cccatnipent/NaiLongFirmware) 为准，基础版本、候选修订与实测边界见[功能状态](source/docs/01-intro/03-status.md)。固件在 `nailong-firmware/` 下执行 `python scripts/build_nailong.py`，配套 server 位于同仓库的 `xiaozhi-esp32-server/`。公开版已移除个人身份覆盖，可直接烧录的奶龙发布包仍待发布。
 
 [Catnip Forge IDE 入门](source/docs/09-ide/index.md)沿用全站排版，使用 ESP32-S3 Hello World 验证编译、烧录和串口，再改一句输出。示例工程成功不等于已经适配奶龙工程。

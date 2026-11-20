@@ -8,6 +8,8 @@ sidebar_label: 功能状态
 
 本文的奶龙固件指 **NaiFirmware**：基于小智 / Otto 2.4.2，使用 ESP-IDF v5.5.5，选择四舵机 `nailong-otto` 变体。它和官方 Otto 固件是两条路线，不能混用烧录包、资源或开发示例。
 
+公开源码见 [NaiLongFirmware](https://github.com/cccatnipent/NaiLongFirmware)，固件目录为 `nailong-firmware/`，配套 server 在同一仓库。公开版已移除个人身份覆盖，使用各设备自己的身份。
+
 | 功能 | NaiFirmware 当前实现 | 说明 |
 |---|---|---|
 | 四舵机、无手臂 | 支持 | ESP32-S3，16 MB Flash、8 MB Octal PSRAM |
@@ -29,11 +31,12 @@ sidebar_label: 功能状态
 |---|---|
 | 四舵机硬件基线 | 用户反馈烧录成功、功能正常，未提供逐项测试日志 |
 | 自定义唤醒、回答选图、普通 5 秒笑声 | 有实际运行日志 |
-| 边笑边走版本 | 79 项主机测试及构建通过，完整真机验收待补 |
-| 最新停止 / BOOT 修订 | 84 项主机测试及定制、原版配置构建通过，仍是候选版本 |
-| MQTT / WebSocket 与自建服务端 | 有实现和构建记录，当前教程未完成端到端验收 |
+| 公开通用固件 | 2026-11-19 记录：完整构建、82 项固件主机测试通过 |
+| 配套 server 配置 | 4 项课程配置测试通过，185 个后端 Python 文件语法检查通过 |
+| 边笑边走、停止 / BOOT 修订 | 已包含在公开源码中，完整真机验收待补 |
+| MQTT / WebSocket 与自建服务端 | 有实现和构建记录，未完成真实设备端到端验收 |
 
-编译通过、烧录成功、实机正常是三件事。测试数量来自已有验证记录，不代表每一项功能都经过真机测试。
+编译通过、烧录成功、实机正常是三件事。上述数量来自公开仓库的 [验证记录](https://github.com/cccatnipent/NaiLongFirmware/blob/main/VALIDATION.md)，不代表每一项功能都经过真机测试；个人工程的历史测试数量见 [更新日志](/docs/download/changelog)。
 
 ## 3. 怎么选
 

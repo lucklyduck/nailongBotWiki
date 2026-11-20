@@ -8,14 +8,16 @@ sidebar_label: 下载
 
 | 内容 | 获取方式 | 说明 |
 |---|---|---|
-| NaiFirmware 源码 | 公司 GitHub 地址待补充 | 基于小智 / Otto 2.4.2，ESP-IDF v5.5.5 |
+| NaiFirmware 源码 | [NaiLongFirmware](https://github.com/cccatnipent/NaiLongFirmware) | 固件在 `nailong-firmware/`，ESP-IDF v5.5.5 |
 | 奶龙公开固件 | 待发布 | 还没有经过公开版发布验收的下载包 |
 | 本地构建 | [编译奶龙固件](/docs/flash/build) | 使用 `build_nailong.py`，不传个人身份文件 |
 | 固件导出 | [导出合并镜像](/docs/flash/merge) | 区分完整安装与保留配置升级 |
-| 配套 server | 公司 GitHub 地址待补充 | 独立项目，接入实测待补 |
+| 配套 server | [xiaozhi-esp32-server](https://github.com/cccatnipent/NaiLongFirmware/tree/main/xiaozhi-esp32-server) | 与固件同仓库，端到端实测待补 |
 | Catnip Forge IDE | 公司 GitHub / 发布包地址待补充 | [使用教程](/docs/ide) |
 
-不要把个人设备升级包、Flash / NVS 备份当成公开下载包。奶龙各修订的验证范围见 [功能状态](/docs/intro/status)。
+固件与 server 一起获取，首次使用见仓库的 [快速开始](https://github.com/cccatnipent/NaiLongFirmware/blob/main/docs/01-快速开始.md)。源码已公开，可直接烧录的奶龙发布包仍待发布。
+
+不要把个人设备升级包、Flash / NVS 备份当成公开下载包。奶龙各修订的验证范围见 [功能状态](/docs/intro/status) 和仓库的 [验证记录](https://github.com/cccatnipent/NaiLongFirmware/blob/main/VALIDATION.md)。
 
 ## 2. 官方与上游资料
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">导出合并镜像 | 奶龙机器人 Wiki</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://nailong.nekokax.com/docs/flash/merge"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="导出合并镜像 | 奶龙机器人 Wiki"><meta data-rh="true" name="description" content="1. 简介"><meta data-rh="true" property="og:description" content="1. 简介"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://nailong.nekokax.com/docs/flash/merge"><link data-rh="true" rel="alternate" href="https://nailong.nekokax.com/docs/flash/merge" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://nailong.nekokax.com/docs/flash/merge" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"烧录","item":"https://nailong.nekokax.com/docs/flash"},{"@type":"ListItem","position":2,"name":"导出合并镜像","item":"https://nailong.nekokax.com/docs/flash/merge"}]}</script><link rel="stylesheet" href="/assets/css/styles.296daddd.css">
-<script src="/assets/js/runtime~main.84ff8230.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.ab81be17.js" defer="defer"></script>
 <script src="/assets/js/main.31cbdec0.js" defer="defer"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
 <p>要把固件交给没有开发环境的朋友，先完成 <a class="" href="/docs/flash/build">公开配置构建</a>，再导出镜像。应用、资源、引导和分区必须来自同一次成功构建。</p>
 <p>当前还没有可直接下载的公开发布包。下面是制作步骤；完整安装和保留配置两条路径都需要发布前实机验证。</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-先检查构建">2. 先检查构建<a href="#2-先检查构建" class="hash-link" aria-label="2. 先检查构建的直接链接" title="2. 先检查构建的直接链接" translate="no">​</a></h2>
-<p>在 <code>xiaozhi-esp32/</code> 下执行 <code>python scripts/build_nailong.py</code>，<strong>不要传个人身份文件</strong>。核对实际 <code>sdkconfig</code> 中没有 <code>CONFIG_DEVICE_IDENTITY_OVERRIDE=y</code>。</p>
+<p>使用 <a href="https://github.com/cccatnipent/NaiLongFirmware" target="_blank" rel="noopener noreferrer" class="">公开源码</a>，在 <code>nailong-firmware/</code> 下执行 <code>python scripts/build_nailong.py</code>。公开版已移除个人身份覆盖，核对本次变体、分区和配套资源。</p>
 <p>不要把整机 Flash / NVS 备份、个人设备身份或个人升级包当成公开固件。</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-导出完整安装镜像">3. 导出完整安装镜像<a href="#3-导出完整安装镜像" class="hash-link" aria-label="3. 导出完整安装镜像的直接链接" title="3. 导出完整安装镜像的直接链接" translate="no">​</a></h2>
 <p>在项目目录执行：</p>
@@ -26,6 +26,7 @@
 <p>分区一致、引导兼容且应用支持旧 NVS 时，可只写本次应用和资源：</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">python </span><span class="token parameter variable" style="color:#36acaa">-m</span><span class="token plain"> esptool </span><span class="token parameter variable" style="color:#36acaa">--chip</span><span class="token plain"> esp32s3 </span><span class="token parameter variable" style="color:#36acaa">-p</span><span class="token plain"> COM5 </span><span class="token parameter variable" style="color:#36acaa">-b</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">115200</span><span class="token plain"> write_flash 0x20000 build/xiaozhi.bin 0x800000 build/generated_assets.bin</span><br></div></code></pre></div></div>
 <p>这两个地址来自本教程的 <code>partitions/v2/16m.csv</code>。换分区表后必须重新核对，不能照抄；不要执行整片擦除。</p>
+<p>上述写法只适用于启动槽仍为 <code>ota_0</code> 的设备。经历 OTA 更新后，先确认当前启动槽，或按本次构建的 <code>idf.py flash</code> 流程更新 OTA 选择数据；不能只写 <code>0x20000</code> 就认定设备会启动新应用。</p>
 <p>从其他版本迁移时，保留 NVS 不等于服务端绑定一定兼容，也不证明旧引导能启动新应用。需要先在目标版本上验证。首次安装应使用完整的 <code>idf.py flash</code>。</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-发给别人之前">5. 发给别人之前<a href="#5-发给别人之前" class="hash-link" aria-label="5. 发给别人之前的直接链接" title="5. 发给别人之前的直接链接" translate="no">​</a></h2>
 <table><thead><tr><th>检查</th><th>要提供什么</th></tr></thead><tbody><tr><td>版本</td><td>基础版本、定制修订、构建日期</td></tr><tr><td>文件</td><td>每个文件的大小、SHA-256、准确烧录地址</td></tr><tr><td>配置</td><td>是否保留 NVS，是否需要重新配网 / 校准 / 绑定</td></tr><tr><td>功能</td><td>实测结果及仍待验证的候选功能</td></tr><tr><td>验收</td><td>启动、联网、图片、笑声、动作、重启和升级回退</td></tr></tbody></table>

@@ -3,6 +3,8 @@
 Wiki 可编辑源码：source/
 发布文件：site/
 当前固件依据：NaiFirmware，基础版本 2.4.2、ESP-IDF v5.5.5。
+固件与 server 公开仓库：https://github.com/cccatnipent/NaiLongFirmware
+公开版固件目录：nailong-firmware/；配套服务端：xiaozhi-esp32-server/。
 当前 IDE 教学：Catnip Forge v2.0.0，source/docs/09-ide/。
 固件内容核对：source/my-board.md。
 素材与第三方资料出处：source/sources.md 及对应页面图注。

@@ -12,7 +12,7 @@ sidebar_label: 导出合并镜像
 
 ## 2. 先检查构建
 
-在 `xiaozhi-esp32/` 下执行 `python scripts/build_nailong.py`，**不要传个人身份文件**。核对实际 `sdkconfig` 中没有 `CONFIG_DEVICE_IDENTITY_OVERRIDE=y`。
+使用 [公开源码](https://github.com/cccatnipent/NaiLongFirmware)，在 `nailong-firmware/` 下执行 `python scripts/build_nailong.py`。公开版已移除个人身份覆盖，核对本次变体、分区和配套资源。
 
 不要把整机 Flash / NVS 备份、个人设备身份或个人升级包当成公开固件。
 
@@ -41,6 +41,8 @@ python -m esptool --chip esp32s3 -p COM5 -b 115200 write_flash 0x20000 build/xia
 ~~~
 
 这两个地址来自本教程的 `partitions/v2/16m.csv`。换分区表后必须重新核对，不能照抄；不要执行整片擦除。
+
+上述写法只适用于启动槽仍为 `ota_0` 的设备。经历 OTA 更新后，先确认当前启动槽，或按本次构建的 `idf.py flash` 流程更新 OTA 选择数据；不能只写 `0x20000` 就认定设备会启动新应用。
 
 从其他版本迁移时，保留 NVS 不等于服务端绑定一定兼容，也不证明旧引导能启动新应用。需要先在目标版本上验证。首次安装应使用完整的 `idf.py flash`。
 

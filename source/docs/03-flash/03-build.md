@@ -10,36 +10,42 @@ sidebar_label: 编译奶龙固件
 
 当前源码还含语音停止与 BOOT 继续监听的候选修订。哪些已经实测，先看 [功能状态](/docs/intro/status)。
 
-:::info 源码入口待补充
-公司 GitHub 仓库和公开发布包尚未确定。拿到正式源码包后按下面的目录和命令操作；这里不提供旧作者仓库或个人设备升级包。
+:::info 获取源码
+[NaiLongFirmware](https://github.com/cccatnipent/NaiLongFirmware) 同时提供固件和配套 server。下面使用公开版的 `nailong-firmware/` 目录；可直接烧录的发布包仍待发布。
 :::
 
 ## 2. 准备环境
 
 1. 安装并激活 **ESP-IDF v5.5.5**，终端执行 `idf.py --version` 核对。
-2. Windows 建议使用短英文路径，例如 `C:\work\NaiFirmware`。
-3. 保留源码包里的 `Materials/`、`xiaozhi-esp32/` 和依赖锁定文件，首次构建需要联网下载组件。
+2. Windows 建议使用短英文路径，例如 `C:\work\NaiLongFirmware`。
+3. 保留源码包里的 `Materials/`、`nailong-firmware/` 和依赖锁定文件，首次构建需要联网下载组件。
 4. 使用已准备好的 `nailong_assets/` 时不用重新转换素材；需要重新准备音频时再安装 ffmpeg。
 
 ~~~text
-NaiFirmware/
+NaiLongFirmware/
 ├── Materials/                         原始素材
-└── xiaozhi-esp32/                      在这里执行构建命令
-    ├── scripts/build_nailong.py
-    ├── scripts/prepare_nailong_materials.py
-    ├── main/boards/otto-robot/
-    └── dependencies.lock
+├── nailong-firmware/                   在这里执行固件构建命令
+│   ├── scripts/build_nailong.py
+│   ├── scripts/prepare_nailong_materials.py
+│   ├── main/boards/otto-robot/
+│   └── dependencies.lock
+├── xiaozhi-esp32-server/                配套语音服务端
+└── docs/                               快速开始与验证说明
 ~~~
 
 ## 3. 编译公开配置
 
-进入 `xiaozhi-esp32/`，在已激活 ESP-IDF 的终端执行：
+在已激活 ESP-IDF 的终端获取源码并进入固件目录：
 
 ~~~bash
+git clone https://github.com/cccatnipent/NaiLongFirmware.git
+cd NaiLongFirmware/nailong-firmware
 python scripts/build_nailong.py
 ~~~
 
-不传 `--identity-file`。脚本会明确关闭个人设备身份覆盖，再调用标准构建流程，选定中文、`nailong-otto`、自定义唤醒词和配套资源。
+已经下载源码包时，直接进入 `nailong-firmware/` 执行最后一条命令。脚本选定中文、`nailong-otto`、自定义唤醒词和配套资源；公开版已移除个人身份覆盖，每台设备使用自己的原厂 MAC 和 UUID。
+
+不带参数时使用 xiaozhi.me 的默认 OTA 地址。自建后端时用 `--ota-url` 指定地址，见 [更换服务端](/docs/dev/server)。
 
 | 项目 | 当前设置 |
 |---|---|

@@ -10,7 +10,7 @@ sidebar_label: 编译系统 CMake + Ninja
 
 | 工具 | 做什么 |
 |---|---|
-| `build_nailong.py` | 选择奶龙变体、中文、唤醒词和公开身份配置 |
+| `build_nailong.py` | 选择奶龙变体、中文、唤醒词和 OTA 地址 |
 | `idf.py` | 调度 ESP-IDF 的配置、编译与烧录 |
 | CMake | 找到源码、组件和素材，生成构建规则 |
 | Ninja | 按规则编译，后续只重做变化的部分 |
@@ -30,7 +30,7 @@ sidebar_label: 编译系统 CMake + Ninja
 | 查看实际配置 | `idf.py menuconfig` |
 | 原版 Otto 配置回归 | `python scripts/build.py otto-robot --name otto-robot` |
 
-构建目录会复用。切换原版、定制版或个人版后，先确认当前配置与产物，不能拿上一轮的文件交付。
+在公开仓库的 `nailong-firmware/` 下执行。构建目录会复用，切换原版或奶龙配置后，先确认当前配置与产物，不能拿上一轮的文件交付。
 
 ## 3. 哪些文件决定构建
 
