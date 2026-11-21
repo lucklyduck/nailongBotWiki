@@ -16,13 +16,13 @@ const photos = [
 const entries = [
   {title: '1. 产品介绍', to: '/docs/intro', desc: '它是什么、规格参数、部件与引脚、功能状态'},
   {title: '2. 组装', to: '/docs/assembly', desc: '备料、打印外壳、舵机归中、装腿脚和外壳'},
-  {title: '3. 烧录', to: '/docs/flash', desc: '官方固件一键烧录，或编译奶龙定制固件'},
-  {title: '4. 调试', to: '/docs/debug', desc: '串口日志、配网、舵机校准、唤醒与声音'},
-  {title: '5. xiaozhi 后台', to: '/docs/xiaozhi', desc: '登录 xiaozhi.me、绑定设备、配置奶龙人设'},
-  {title: '6. 二次开发 ★', to: '/docs/dev', desc: '加动作、加 MCP 工具、换表情、换唤醒词'},
-  {title: '7. FAQ', to: '/docs/faq', desc: '常见问题与排查方法'},
-  {title: '8. 下载', to: '/docs/download', desc: '固件、源码、工具、晒出你的奶龙'},
-  {title: '9. IDE 入门', to: '/docs/ide', desc: 'Catnip Forge：编译、烧录、看串口，再改一句输出'},
+  {title: '3. IDE 入门', to: '/docs/ide', desc: 'Catnip Forge：编译、烧录、看串口，再改一句输出'},
+  {title: '4. 烧录', to: '/docs/flash', desc: '官方固件一键烧录，或编译奶龙定制固件'},
+  {title: '5. 调试', to: '/docs/debug', desc: '串口日志、配网、舵机校准、唤醒与声音'},
+  {title: '6. xiaozhi 后台', to: '/docs/xiaozhi', desc: '登录 xiaozhi.me、绑定设备、配置奶龙人设'},
+  {title: '7. 二次开发 ★', to: '/docs/dev', desc: '加动作、加 MCP 工具、换表情、换唤醒词'},
+  {title: '8. FAQ', to: '/docs/faq', desc: '常见问题与排查方法'},
+  {title: '9. 下载', to: '/docs/download', desc: '固件、源码、工具、晒出你的奶龙'},
 ];
 
 const communities = [
