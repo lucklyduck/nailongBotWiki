@@ -1,0 +1,22 @@
+OpenAI Blossom / GPT logo source
+Retrieved: 2026-11-10
+
+Official brand page:
+https://openai.com/brand/
+
+Official downloadable asset archive:
+https://cdn.openai.com/brand/OpenAI-Logos-2025.zip
+
+gpt-logo.svg is the unmodified file:
+OpenAI-logos(new)/SVGs/OpenAI-white-monoblossom.svg
+
+gpt-logo.png is the unmodified file:
+OpenAI-logos(new)/PNGs/OpenAI-white-monoblossom.png
+
+Both are supplied white-on-transparent versions of the official six-part Blossom symbol, not a hand-drawn approximation. Keep their original aspect ratio and shape.
+
+Rights / usage source:
+https://openai.com/brand/#usage-terms
+The OpenAI / ChatGPT / GPT marks belong to OpenAI. These assets are official brand downloads, not CC0 or an unrestricted game-art license. The official page requires use within the Marks usage terms and prohibits implying endorsement or ownership. In this prototype, GPT-5.6 Sol is a fictional game evolution, not a statement of an actual model, affiliation, or official product.
+
+No external assets, scripts or hyperlinks are embedded in the SVG.

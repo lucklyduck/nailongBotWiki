@@ -1,0 +1,32 @@
+AI training minigame sound sources
+Checked: 2026-11-10 (Asia/Taipei)
+
+Creator: Kenney
+Pack: Interface Sounds 1.0 (100 files, 2020)
+Official asset page: https://kenney.nl/assets/interface-sounds
+License: Creative Commons Zero (CC0) 1.0 Universal
+License URL: https://creativecommons.org/publicdomain/zero/1.0/
+Original package license is preserved in LICENSE-Kenney.txt.
+Downloaded from the official Kenney download endpoint with its normal session cookie.
+Delivered files are decoded to PCM WAV and attenuated to a maximum 0.35 peak / 0.065 RMS, whichever is quieter.
+No added synthesis or third-party samples.
+Credit is appreciated by Kenney, but not required by this CC0 asset pack.
+
+Delivered file -> original archive path / duration:
+ui-click.wav -> Audio/click_001.ogg / 0.1 seconds
+training-start.wav -> Audio/open_002.ogg / 0.314 seconds
+training-success.wav -> Audio/confirmation_001.ogg / 0.29 seconds
+training-breakthrough.wav -> Audio/confirmation_004.ogg / 0.49 seconds
+training-failure.wav -> Audio/error_008.ogg / 0.139 seconds
+model-sold.wav -> Audio/confirmation_002.ogg / 0.539 seconds
+
+Recommended use:
+ui-click.wav: data augment selection / small controls
+training-start.wav: start one training step
+training-success.wav: normal training improvement
+training-breakthrough.wav: rare breakthrough result
+training-failure.wav: instability or collapse warning
+model-sold.wav: model release / sale reward
+
+Playback: only after an explicit user sound toggle or gesture, no background loop.
+Durations, gains and SHA-256 hashes are recorded in manifest.json.

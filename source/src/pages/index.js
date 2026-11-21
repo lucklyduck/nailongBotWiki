@@ -2,6 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
+import NaiwaLab from '@site/src/components/NaiwaLab/NaiwaLab';
 import styles from './index.module.css';
 
 const photos = [
@@ -34,6 +35,7 @@ const communities = [
 export default function Home() {
   return (
     <Layout title="首页" description="奶龙机器人 Wiki">
+      <NaiwaLab mascotSrc={useBaseUrl('/img/logo.svg')}>
       <header className={styles.hero}>
         <div className={styles.heroInner}>
           <div className={styles.heroText}>
@@ -59,6 +61,7 @@ export default function Home() {
           />
         </div>
       </header>
+      </NaiwaLab>
       <section className={styles.community} aria-labelledby="community-title">
         <div className="container">
           <h2 id="community-title">项目相关交流群</h2>

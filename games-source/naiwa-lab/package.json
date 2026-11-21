@@ -1,0 +1,13 @@
+{
+  "name": "naiwa-singularity-lab",
+  "version": "0.3.0",
+  "private": true,
+  "description": "适合嵌入 Wiki 首页的 AI 模型训练肉鸽小游戏",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "test": "node tests/engine.test.cjs && node tests/package.test.cjs",
+    "start": "node scripts/serve.cjs",
+    "check": "node --check src/app.js && node --check src/engine.js && node --check src/embed.js"
+  }
+}

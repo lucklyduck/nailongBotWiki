@@ -17,6 +17,15 @@
 
 ## 🎯 项目介绍
 
+### 首页小游戏：奶蛙 · 奇点实验室
+
+点击首页机器人旁的“点一下试试”，可在首页展开 AI 模型训练小游戏；点击“返回 Wiki”恢复介绍。进度保存在浏览器本地，游戏按需加载，音效默认关闭。
+
+- [直接试玩](https://nailong.nekokax.com/games/naiwa-lab/index.html)
+- [游戏源码与说明](games-source/naiwa-lab/README.md) · [玩法数值](games-source/naiwa-lab/docs/GAME_DESIGN.md) · [素材来源](games-source/naiwa-lab/THIRD_PARTY_NOTICES.md)
+- 在 `source/` 执行 `npm run build` 时，会先重建游戏并同步静态文件。按原发布流程将 `source/build/` 同步到 `site/` 后一起提交。
+- 首页接入组件位于 `source/src/components/NaiwaLab/`，入口复用现有 Wiki 机器人标志；游戏使用同源 iframe 隔离样式。
+
 奶龙机器人实战课围绕一台基于 **ESP32-S3 与小智 AI Otto** 的桌面机器人展开。你可以跟着教程认识零部件、打印外壳、完成组装，再进行固件烧录、配网、舵机校准和语音交互配置。有开发基础的同学，还可以继续添加动作、修改表情和唤醒词，尝试通过 MCP 让大模型调用机器人的功能。
 
 课程记录的实物作品由 **知造 ZhiForge（catnipent）** 团队在 2026 知乎黑客松 · 校园新锐季制作。团队在 Otto 双足机器人的基础上加入奶龙 / 看山造型外壳，当前教程采用 NaiFirmware（基础版本 2.4.2），介绍“你好奶龙”唤醒、彩色场景图、本地 5 秒笑声和动作开发；历史样机与当前源码的功能以教程说明为准。

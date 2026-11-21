@@ -1,0 +1,50 @@
+{
+  "ui-click": {
+    "file": "ui-click.wav",
+    "original": "Audio/click_001.ogg",
+    "seconds": 0.1,
+    "sampleRate": 44100,
+    "gain": 0.409,
+    "sha256": "93c591ae11893a65a051363b8fd770ac07e5436e2a6641fbdabfeb105cbe6203"
+  },
+  "training-start": {
+    "file": "training-start.wav",
+    "original": "Audio/open_002.ogg",
+    "seconds": 0.314,
+    "sampleRate": 44100,
+    "gain": 0.3893,
+    "sha256": "81031eb387af3326616e6f18c210efe7f90d7379b64f2a4e4751568c5cd7455c"
+  },
+  "training-success": {
+    "file": "training-success.wav",
+    "original": "Audio/confirmation_001.ogg",
+    "seconds": 0.29,
+    "sampleRate": 44100,
+    "gain": 0.2391,
+    "sha256": "b9708585b3ba6676f5adbf34ec8e490e5bf77adfbe5a0fbbd5577ba6577f0543"
+  },
+  "training-breakthrough": {
+    "file": "training-breakthrough.wav",
+    "original": "Audio/confirmation_004.ogg",
+    "seconds": 0.49,
+    "sampleRate": 44100,
+    "gain": 0.2522,
+    "sha256": "cfa033f2a6decf029650c4bbf2ab1dbf747c7371b1a2aefac27b230e53d5b82b"
+  },
+  "training-failure": {
+    "file": "training-failure.wav",
+    "original": "Audio/error_008.ogg",
+    "seconds": 0.139,
+    "sampleRate": 44100,
+    "gain": 0.3907,
+    "sha256": "4b758c6376c6329d7c67e61b8973a20599ffe077429833da5b24169dc77f1771"
+  },
+  "model-sold": {
+    "file": "model-sold.wav",
+    "original": "Audio/confirmation_002.ogg",
+    "seconds": 0.539,
+    "sampleRate": 44100,
+    "gain": 0.3607,
+    "sha256": "db10558642b508bc7fc8b4dc8f2ecefcd2c3243fbe1ce408f6843962daa2c54a"
+  }
+}
