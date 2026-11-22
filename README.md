@@ -97,13 +97,13 @@
 | --- | --- | --- | --- |
 | 第一章 · 产品介绍 | 项目背景、规格、部件与引脚、功能状态、学习路线 | [阅读](https://nailong.nekokax.com/docs/intro) | [5 篇](source/docs/01-intro/) |
 | 第二章 · 组装 | 物料、外壳打印、焊接、舵机归中、腿脚和主板装配、自检 | [阅读](https://nailong.nekokax.com/docs/assembly) | [8 篇](source/docs/02-assembly/) |
-| 第三章 · 烧录 | 在线烧录、工具烧录、源码编译、固件合并 | [阅读](https://nailong.nekokax.com/docs/flash) | [5 篇](source/docs/03-flash/) |
-| 第四章 · 调试 | 串口日志、配网、舵机校准、唤醒、笑声与按键 | [阅读](https://nailong.nekokax.com/docs/debug) | [5 篇](source/docs/04-debug/) |
-| 第五章 · xiaozhi 后台 | 登录、绑定设备、人设与音色、MCP 接入 | [阅读](https://nailong.nekokax.com/docs/xiaozhi) | [5 篇](source/docs/05-xiaozhi/) |
-| 第六章 · 二次开发 | 固件结构、动作、MCP 工具、唤醒词、表情、音效、服务端与原理 | [阅读](https://nailong.nekokax.com/docs/dev) | [11 篇](source/docs/06-dev/) |
-| 第七章 · FAQ | 项目、组装、烧录、网络与使用中的常见问题 | [阅读](https://nailong.nekokax.com/docs/faq) | [1 篇](source/docs/07-faq/) |
-| 第八章 · 下载与分享 | 固件和工具入口、更新日志、联系与作品分享 | [阅读](https://nailong.nekokax.com/docs/download) | [5 篇](source/docs/08-download/) |
-| 第九章 · IDE 入门 | Catnip Forge 编译、烧录、串口与改代码两个示例 | [阅读](https://nailong.nekokax.com/docs/ide) | [4 篇](source/docs/09-ide/) |
+| 第三章 · IDE 入门 | Catnip Forge 编译、烧录、串口与改代码两个示例 | [阅读](https://nailong.nekokax.com/docs/ide) | [4 篇](source/docs/09-ide/) |
+| 第四章 · 烧录 | 在线烧录、工具烧录、源码编译、固件合并 | [阅读](https://nailong.nekokax.com/docs/flash) | [5 篇](source/docs/03-flash/) |
+| 第五章 · 调试 | 串口日志、配网、舵机校准、唤醒、笑声与按键 | [阅读](https://nailong.nekokax.com/docs/debug) | [5 篇](source/docs/04-debug/) |
+| 第六章 · xiaozhi 后台 | 登录、绑定设备、人设与音色、MCP 接入 | [阅读](https://nailong.nekokax.com/docs/xiaozhi) | [5 篇](source/docs/05-xiaozhi/) |
+| 第七章 · 二次开发 | 固件结构、动作、MCP 工具、唤醒词、表情、音效、服务端与原理 | [阅读](https://nailong.nekokax.com/docs/dev) | [11 篇](source/docs/06-dev/) |
+| 第八章 · FAQ | 项目、组装、烧录、网络与使用中的常见问题 | [阅读](https://nailong.nekokax.com/docs/faq) | [1 篇](source/docs/07-faq/) |
+| 第九章 · 下载与分享 | 固件和工具入口、更新日志、联系与作品分享 | [阅读](https://nailong.nekokax.com/docs/download) | [5 篇](source/docs/08-download/) |
 
 ### 按 Task 0—5 开始实践
 
