@@ -92,6 +92,7 @@ const config = {
           {
             title: '交流',
             items: [
+              {label: '创作者与共创', to: '/docs/contributors'},
               {label: 'FAQ', to: '/docs/faq'},
               {label: '更新日志', to: '/docs/download/changelog'},
             ],

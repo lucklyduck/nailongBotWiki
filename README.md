@@ -30,7 +30,7 @@
 
 课程记录的实物作品由 **知造 ZhiForge（catnipent）** 团队在 2026 知乎黑客松 · 校园新锐季制作。团队在 Otto 双足机器人的基础上加入奶龙 / 看山造型外壳，当前教程采用 NaiFirmware（基础版本 2.4.2），介绍“你好奶龙”唤醒、彩色场景图、本地 5 秒笑声和动作开发；历史样机与当前源码的功能以教程说明为准。
 
-本仓库提供课程文档、网站源码、图片和演示视频，以及完整结构件模型（8 个 STL 与 1 个 3MF 参考工程）。课程目前有 **9 个章节、48 篇文档**，你可以按学习路线完成一台机器人，也可以按问题查阅组装、烧录和调试页面。
+本仓库提供课程文档、网站源码、图片和演示视频，以及完整结构件模型（8 个 STL 与 1 个 3MF 参考工程）。课程目前有 **9 个章节、49 篇文档**，你可以按学习路线完成一台机器人，也可以按问题查阅组装、烧录和调试页面。
 
 ### 适合谁学习
 
@@ -103,7 +103,7 @@
 | 第六章 · xiaozhi 后台 | 登录、绑定设备、人设与音色、MCP 接入 | [阅读](https://nailong.nekokax.com/docs/xiaozhi) | [5 篇](source/docs/05-xiaozhi/) |
 | 第七章 · 二次开发 | 固件结构、动作、MCP 工具、唤醒词、表情、音效、服务端与原理 | [阅读](https://nailong.nekokax.com/docs/dev) | [11 篇](source/docs/06-dev/) |
 | 第八章 · FAQ | 项目、组装、烧录、网络与使用中的常见问题 | [阅读](https://nailong.nekokax.com/docs/faq) | [1 篇](source/docs/07-faq/) |
-| 第九章 · 下载与分享 | 固件和工具入口、更新日志、联系与作品分享 | [阅读](https://nailong.nekokax.com/docs/download) | [4 篇](source/docs/08-download/) |
+| 第九章 · 下载与分享 | 固件和工具入口、更新日志、联系与作品分享 | [阅读](https://nailong.nekokax.com/docs/download) | [5 篇](source/docs/08-download/) |
 
 ### 按 Task 0—5 开始实践
 
@@ -172,6 +172,8 @@ nailongBotWiki/
 线上网站由 Cloudflare Workers 托管，并关联本仓库。修改 `source/` 后，请先构建并检查结果，再将 `source/build/` 中的内容同步到 `site/`，随源码一起提交，保持阅读站与课程正文一致。`node_modules/` 和 `source/build/` 不需要提交。
 
 ## 🤝 如何贡献
+
+[创作者名单与共创指南](https://nailong.nekokax.com/docs/contributors) · [贡献说明](CONTRIBUTING.md)
 
 欢迎通过 [Issue](https://github.com/lucklyduck/nailongBotWiki/issues) 或 [Pull Request](https://github.com/lucklyduck/nailongBotWiki/pulls) 参与：
 

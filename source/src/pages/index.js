@@ -65,6 +65,7 @@ export default function Home() {
       <section className={styles.community} aria-labelledby="community-title">
         <div className="container">
           <h2 id="community-title">项目相关交流群</h2>
+          <p style={{textAlign: 'center'}}><Link to="/docs/contributors">创作者名单与 GitHub 共创指南 →</Link></p>
           <div className={styles.communityGrid}>
             {communities.map((group) => (
               <article className={styles.communityCard} key={group.src}>
