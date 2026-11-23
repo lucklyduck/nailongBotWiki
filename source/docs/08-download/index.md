@@ -13,7 +13,7 @@ sidebar_label: 下载
 | 本地构建 | [编译奶龙固件](/docs/flash/build) | 使用 `build_nailong.py`，不传个人身份文件 |
 | 固件导出 | [导出合并镜像](/docs/flash/merge) | 区分完整安装与保留配置升级 |
 | 配套 server | [xiaozhi-esp32-server](https://github.com/cccatnipent/NaiLongFirmware/tree/main/xiaozhi-esp32-server) | 与固件同仓库，端到端实测待补 |
-| Catnip Forge IDE | GitHub 仓库和安装包地址待补充 | [使用教程](/docs/ide) |
+| Catnip Forge IDE | [GitHub 仓库](https://github.com/cccatnipent/Catnip_Forge_IDE) | [使用教程](/docs/ide) |
 
 固件与 server 一起获取，首次使用见仓库的 [快速开始](https://github.com/cccatnipent/NaiLongFirmware/blob/main/docs/01-快速开始.md)。源码已公开，可直接烧录的奶龙发布包仍待发布。
 

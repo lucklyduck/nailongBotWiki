@@ -8,7 +8,7 @@ sidebar_label: Catnip Forge IDE 入门
 
 Catnip Forge 把 **改代码、编译、烧录、看串口** 放进一个桌面工作区。用两个小示例走完流程，再尝试自己的工程。
 
-本文按 **v2.0.0** 的使用示例整理，界面以安装版本为准。GitHub 仓库和安装包地址待补充，发布后可在 [下载](/docs/download) 查看。
+本文按 **v2.0.0** 的使用示例整理，界面以安装版本为准。源码见 [GitHub 仓库](https://github.com/cccatnipent/Catnip_Forge_IDE)。
 
 | 页面 | 做什么 | 完成标志 |
 |---|---|---|
